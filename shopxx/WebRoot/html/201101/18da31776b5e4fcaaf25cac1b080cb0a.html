@@ -1,0 +1,933 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>戴尔 Inspiron 13R - Powered By SHOP++</title>
+<meta name="Author" content="SHOP++ Team" />
+<meta name="Copyright" content="SHOP++" />
+
+
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link href="/shopxx/template/common/css/jquery.zoomimage.css" rel="stylesheet" type="text/css" />
+<link href="/shopxx/template/shop/css/base.css" rel="stylesheet" type="text/css" />
+<link href="/shopxx/template/shop/css/shop.css" rel="stylesheet" type="text/css" />
+<!--[if lte IE 6]>
+	<script type="text/javascript" src="/shopxx/template/common/js/belatedPNG.js"></script>
+	<script type="text/javascript">
+		// 解决IE6透明PNG图片BUG
+		DD_belatedPNG.fix(".belatedPNG");
+	</script>
+<![endif]-->
+</head>
+<body id="goodsContent" class="goodsContent">
+<div id="header" class="header belatedPNG">
+	<div class="headerTop belatedPNG">
+		<div class="headerTopContent">
+			<div class="headerLoginInfo">
+				您好<span id="headerLoginMemberUsername"></span>, 欢迎来到SHOP++商城!
+				<a href="javascript: void(0);" id="headerShowLoginWindow">登录</a>
+				<a href="/shopxx/shop/member_center!index.action" id="headerMemberCenter">会员中心</a>
+				<a href="javascript: void(0);" id="headerShowRegisterWindow">注册</a>
+				<a href="/shopxx/shop/member!logout.action" id="headerLogout">[退出]</a>
+			</div>
+			<div class="headerTopNav">
+						<a href="javascript: addFavorite('http://localhost','SHOP++商城')"
+							>收藏本站
+						</a>
+						|
+						<a href="/shopxx/shop/article_list/about_us.htm"
+							>关于我们
+						</a>
+						|
+						<a href="/shopxx/shop/article_list/help.htm"
+							>帮助中心
+						</a>
+						|
+						<a href="http://bbs.shopxx.net"
+							 target="_blank">SHOP++论坛
+						</a>
+						|
+						<a href="http://www.shopxx.net"
+							 target="_blank">SHOP++网站
+						</a>
+						
+			</div>
+		</div>
+	</div>
+	<div class="headerMiddle">
+		<div class="headerInfo">
+				7×24小时服务热线: <strong>400-8888888</strong>
+		</div>
+		<div class="headerLogo">
+			<a href="/shopxx/"><img class="belatedPNG" src="/shopxx/images/logo.jpg" alt="SHOP++商城" /></a>
+		</div>
+		<div class="headerSearch belatedPNG">
+			<form id="goodsSearchForm" action="/shopxx/shop/goods!search.action" method="post">
+				<div class="headerSearchText">
+					<input type="text" id="goodsSearchKeyword" name="pager.keyword" value="请输入关键词..." />
+				</div>
+				<input type="submit" class="headerSearchButton" value="" />
+				<div class="hotKeyword">
+					热门关键词: 
+						<a href="/shopxx/shop/goods!search.action?pager.keyword=%E8%8B%B9%E6%9E%9C">苹果</a>
+						<a href="/shopxx/shop/goods!search.action?pager.keyword=%E6%9D%BE%E4%B8%8B">松下</a>
+						<a href="/shopxx/shop/goods!search.action?pager.keyword=%E7%B4%A2%E5%B0%BC">索尼</a>
+						<a href="/shopxx/shop/goods!search.action?pager.keyword=%E4%B8%89%E6%98%9F">三星</a>
+						<a href="/shopxx/shop/goods!search.action?pager.keyword=%E8%AF%BA%E5%9F%BA%E4%BA%9A">诺基亚</a>
+						<a href="/shopxx/shop/goods!search.action?pager.keyword=%E6%B5%B7%E5%B0%94">海尔</a>
+						<a href="/shopxx/shop/goods!search.action?pager.keyword=%E6%83%A0%E6%99%AE">惠普</a>
+						<a href="/shopxx/shop/goods!search.action?pager.keyword=%E4%B8%9C%E8%8A%9D">东芝</a>
+						<a href="/shopxx/shop/goods!search.action?pager.keyword=LG">LG</a>
+						<a href="/shopxx/shop/goods!search.action?pager.keyword=%E8%81%94%E6%83%B3">联想</a>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="headerBottom">
+		<input type="button" class="cartItemListButton" value="" onclick="window.open('/shopxx/shop/cart_item!list.action')" />
+		<input type="button" class="orderButton" value="" onclick="window.open('/shopxx/shop/cart_item!list.action')" />
+		<div class="headerMiddleNav">
+			<div class="headerMiddleNavLeft belatedPNG"></div>
+			<ul class="headerMiddleNavContent belatedPNG">
+						<li>
+							<a href="/shopxx/"
+								>首页
+							</a>
+						</li>
+						<li>
+							<a href="/shopxx/shop/goods_list/office_computer.htm"
+								>电脑办公
+							</a>
+						</li>
+						<li>
+							<a href="/shopxx/shop/goods_list/mobile_digita.htm"
+								>手机数码
+							</a>
+						</li>
+						<li>
+							<a href="/shopxx/shop/goods_list/fashion_video.htm"
+								>时尚影音
+							</a>
+						</li>
+						<li>
+							<a href="/shopxx/shop/goods_list/home_appliances.htm"
+								>家用电器
+							</a>
+						</li>
+						<li>
+							<a href="/shopxx/shop/article_list/help.htm"
+								>帮助中心
+							</a>
+						</li>
+						<li>
+							<a href="/shopxx/shop/leave_message.htm"
+								>在线留言
+							</a>
+						</li>
+			</ul>
+			<div class="headerMiddleNavRight belatedPNG"></div>
+		</div>
+	</div>
+</div>	<div class="body">
+		<div class="bodyLeft">
+			<div class="goodsCategory">
+            	<div class="top">商品分类</div>
+            	<div class="middle">
+            		<ul id="goodsCategoryMenu" class="menu">
+	            				<li class="mainCategory">
+									<a href="/shopxx/shop/goods_list/office_computer.htm">电脑办公</a>
+								</li>
+										<li>
+											<a href="/shopxx/shop/goods_list/computer_circcity.htm">
+												<span class="icon">&nbsp;</span>电脑整机
+											</a>
+										</li>
+										<li>
+											<a href="/shopxx/shop/goods_list/computer_accessories.htm">
+												<span class="icon">&nbsp;</span>电脑配件
+											</a>
+										</li>
+										<li>
+											<a href="/shopxx/shop/goods_list/office_equipment.htm">
+												<span class="icon">&nbsp;</span>办公设备
+											</a>
+										</li>
+										<li>
+											<a href="/shopxx/shop/goods_list/office_fallen.htm">
+												<span class="icon">&nbsp;</span>办公耗材
+											</a>
+										</li>
+	            				<li class="mainCategory">
+									<a href="/shopxx/shop/goods_list/mobile_digita.htm">手机数码</a>
+								</li>
+										<li>
+											<a href="/shopxx/shop/goods_list/mobile_communication.htm">
+												<span class="icon">&nbsp;</span>手机通讯
+											</a>
+										</li>
+										<li>
+											<a href="/shopxx/shop/goods_list/mobile_phone_accessories.htm">
+												<span class="icon">&nbsp;</span>手机配件
+											</a>
+										</li>
+										<li>
+											<a href="/shopxx/shop/goods_list/digital_imaging.htm">
+												<span class="icon">&nbsp;</span>数码影像
+											</a>
+										</li>
+										<li>
+											<a href="/shopxx/shop/goods_list/digital_accessories.htm">
+												<span class="icon">&nbsp;</span>数码配件
+											</a>
+										</li>
+	            				<li class="mainCategory">
+									<a href="/shopxx/shop/goods_list/fashion_video.htm">时尚影音</a>
+								</li>
+										<li>
+											<a href="/shopxx/shop/goods_list/mp3mp4.htm">
+												<span class="icon">&nbsp;</span>MP3/MP4
+											</a>
+										</li>
+										<li>
+											<a href="/shopxx/shop/goods_list/apple_accessories.htm">
+												<span class="icon">&nbsp;</span>苹果配件
+											</a>
+										</li>
+										<li>
+											<a href="/shopxx/shop/goods_list/audio_instruments.htm">
+												<span class="icon">&nbsp;</span>音频乐器
+											</a>
+										</li>
+										<li>
+											<a href="/shopxx/shop/goods_list/electronic_dictionary.htm">
+												<span class="icon">&nbsp;</span>电子词典
+											</a>
+										</li>
+					</ul>
+            	</div>
+                <div class="bottom"></div>
+			</div>
+			<div class="blank"></div>
+			<div class="hotGoods">
+				<div class="top">热销排行</div>
+				<div class="middle">
+					<ul>
+								<li class="number1">
+									<span class="icon">&nbsp;</span>
+									<a href="/shopxx/html/201101/38f00f0a26694a5290c62e66782fa1be.html" title="联想 Y560D">联想 Y560D</a>
+								</li>
+								<li class="number2">
+									<span class="icon">&nbsp;</span>
+									<a href="/shopxx/html/201101/18da31776b5e4fcaaf25cac1b080cb0a.html" title="戴尔 Inspiron 13R">戴尔 Inspiron 13R</a>
+								</li>
+								<li class="number3">
+									<span class="icon">&nbsp;</span>
+									<a href="/shopxx/html/201101/5b234054ff9a43bc9551d40ac475c826.html" title="三星 NP-RV520-S01CN">三星 NP-RV520-S01CN</a>
+								</li>
+								<li class="number4">
+									<span class="icon">&nbsp;</span>
+									<a href="/shopxx/html/201101/98969b4400b14a0ba8b1c13190b2d20d.html" title="苹果 MacBook Air MC504CH/A">苹果 MacBook Air MC504CH...</a>
+								</li>
+					</ul>
+				</div>
+				<div class="bottom"></div>
+			</div>
+			<div class="blank"></div>
+			<div id="goodsHistory" class="goodsHistory">
+				<div class="top">浏览记录</div>
+				<div class="middle">
+					<ul id="goodsHistoryListDetail"></ul>
+				</div>
+				<div class="bottom"></div>
+			</div>
+		</div>
+		<div class="bodyRight">
+			<div class="listBar">
+				<div class="left"></div>
+				<div class="middle">
+					<div class="path">
+						<a href="/shopxx/" class="shop"><span class="icon">&nbsp;</span>首页</a> &gt;
+							<a href="/shopxx/shop/goods_list/office_computer.htm">电脑办公</a> &gt;
+							<a href="/shopxx/shop/goods_list/computer_circcity.htm">电脑整机</a> &gt;
+							<a href="/shopxx/shop/goods_list/portable_computer.htm">笔记本</a> &gt;
+					</div>
+				</div>
+				<div class="right"></div>
+			</div>
+			<div class="blank"></div>
+			<div class="goodsTop">
+				<div class="goodsTopLeft">
+					<div class="goodsImage">
+		                		<a href="/shopxx/upload/image/201101/big/3f55d96c7c9d46a6933020125440c75d.jpg" class="tabContent zoom">
+									<img src="/shopxx/upload/image/201101/small/3f55d96c7c9d46a6933020125440c75d.jpg" alt="点击放大" />
+								</a>
+		                		<a href="/shopxx/upload/image/201101/big/1933d666855241f1908790a45671367c.jpg" class="tabContent zoom nonFirst">
+									<img src="/shopxx/upload/image/201101/small/1933d666855241f1908790a45671367c.jpg" alt="点击放大" />
+								</a>
+		                		<a href="/shopxx/upload/image/201101/big/f6b4a370d68742d78653afd330bfbe31.jpg" class="tabContent zoom nonFirst">
+									<img src="/shopxx/upload/image/201101/small/f6b4a370d68742d78653afd330bfbe31.jpg" alt="点击放大" />
+								</a>
+		                		<a href="/shopxx/upload/image/201101/big/6217899bb5de4a3194f249bafdecb527.jpg" class="tabContent zoom nonFirst">
+									<img src="/shopxx/upload/image/201101/small/6217899bb5de4a3194f249bafdecb527.jpg" alt="点击放大" />
+								</a>
+                	</div>
+					<div class="thumbnailGoodsImage">
+						<a class="prev browse" href="javascript: void(0);" hidefocus></a>
+						<div id="thumbnailGoodsImageScrollable" class="scrollable">
+							<ul id="goodsImageTab" class="items goodsImageTab">
+										<li><img src="/shopxx/upload/image/201101/thumbnail/3f55d96c7c9d46a6933020125440c75d.jpg" alt="" /></li>
+										<li><img src="/shopxx/upload/image/201101/thumbnail/1933d666855241f1908790a45671367c.jpg" alt="" /></li>
+										<li><img src="/shopxx/upload/image/201101/thumbnail/f6b4a370d68742d78653afd330bfbe31.jpg" alt="" /></li>
+										<li><img src="/shopxx/upload/image/201101/thumbnail/6217899bb5de4a3194f249bafdecb527.jpg" alt="" /></li>
+							</ul>
+						</div>
+						<a class="next browse" href="javascript: void(0);" hidefocus></a>
+					</div>
+				</div>
+				<div class="goodsTopRight">
+					<h1 class="title">戴尔 Inspiron 13R</h1>
+					<ul class="goodsAttribute">
+						<li>商品编号: SN_19C91713EEDB</li>
+						<li>货品编号: <span id="productSn">SN_3CE2C0E0AC4A</span></li>
+	                    		<li>尺寸: 14英寸</li>
+	                    		<li>显卡: 独立显卡</li>
+	                    		<li>平台: Intel平台</li>
+					</ul>
+					<div class="blank"></div>
+					<div class="goodsPrice">
+						<div class="left"></div>
+						<div class="right">
+							<div class="top">
+								销 售 价:
+								<span id="price" class="price">￥4999.00元</span>
+							</div>
+							<div class="bottom">
+								市 场 价:
+									<span id="marketPrice" class="marketPrice">￥5998.80元</span>
+							</div>
+						</div>
+					</div>
+					<div class="blank"></div>
+					<table id="buyInfo" class="buyInfo">
+							<tr class="specificationTips">
+								<th id="tipsTitle">请选择:</th>
+								<td>
+									<div id="tipsContent" class="tipsContent">
+											颜色 
+									</div>
+									<div id="closeHighlight" class="closeHighlight" title="关闭"></div>
+								</td>
+							</tr>
+									<tr class="image">
+										<th>颜色:</th>
+										<td>
+											<ul>
+														<li class="c2fcc2a73f8940719d63c8df28faa244" title="粉红色" specificationValueId="c2fcc2a73f8940719d63c8df28faa244">
+																<img src="/shopxx/upload/image/201101/5cc8de78541a411ebf903b062e623267.gif" alt="粉红色" />
+															<span title="点击取消选择"></span>
+														</li>
+														<li class="c4cdb921fb6b42b7a634edd9117b1606" title="黑色" specificationValueId="c4cdb921fb6b42b7a634edd9117b1606">
+																<img src="/shopxx/upload/image/201101/f9e4bff3c15b49ad8eb9e7df898b5f1c.gif" alt="黑色" />
+															<span title="点击取消选择"></span>
+														</li>
+														<li class="750f1c39471a4df99d0b91631c353051" title="紫色" specificationValueId="750f1c39471a4df99d0b91631c353051">
+																<img src="/shopxx/upload/image/201101/ac0f0d6eb0144fc89921c8f1a0dc952b.gif" alt="紫色" />
+															<span title="点击取消选择"></span>
+														</li>
+											</ul>
+										</td>
+									</tr>
+						<tr>
+							<th>购买数量:</th>
+							<td>
+								<input type="text" id="quantity" value="1" />
+							</td>
+						</tr>
+						<tr>
+							<th>&nbsp;</th>
+							<td>
+									<input type="button" id="goodsButton" class="addCartItemButton" value="" hidefocus />
+								 <input type="button" id="addFavorite" class="addFavoriteButton" goodsId="40289181303478af013035a454000061" hidefocus />
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="blank"></div>
+			<div class="goodsBottom">
+				<ul id="goodsParameterTab" class="goodsParameterTab">
+					<li>
+						<a href="javascript: void(0);" class="current" hidefocus>商品介绍</a>
+					</li>
+					<li>
+						<a href="javascript: void(0);" name="goodsAttribute" hidefocus>商品参数</a>
+					</li>
+						<li>
+							<a href="javascript: void(0);" hidefocus>商品评论</a>
+						</li>
+				</ul>
+				<div class="tabContent goodsIntroduction">
+					<img alt="" src="http://demo.image.shopxx.net/201101/6cc2f3056b824de2827cd168a48e1874.png" border="0" />
+				</div>
+				<div class="tabContent goodsAttribute">
+					<table class="goodsParameterTable">
+								<tr>
+									<th>
+										品牌
+									</th>
+									<td>
+										戴尔 DELL
+									</td>
+								</tr>
+								<tr>
+									<th>
+										型号
+									</th>
+									<td>
+										Inspiron 13R
+									</td>
+								</tr>
+								<tr>
+									<th>
+										颜色
+									</th>
+									<td>
+										曜石黑
+									</td>
+								</tr>
+								<tr>
+									<th>
+										平台
+									</th>
+									<td>
+										Intel
+									</td>
+								</tr>
+								<tr>
+									<th>
+										显卡类型
+									</th>
+									<td>
+										独立显卡
+									</td>
+								</tr>
+								<tr>
+									<th>
+										显示芯片
+									</th>
+									<td>
+										ATI Mobility Radeon HD 540v
+									</td>
+								</tr>
+								<tr>
+									<th>
+										显存容量
+									</th>
+									<td>
+										独立512MB
+									</td>
+								</tr>
+								<tr>
+									<th>
+										CPU类型
+									</th>
+									<td>
+										酷睿双核i3处理器
+									</td>
+								</tr>
+								<tr>
+									<th>
+										CPU型号
+									</th>
+									<td>
+										i3-380M
+									</td>
+								</tr>
+								<tr>
+									<th>
+										CPU速度
+									</th>
+									<td>
+										2.53GHz
+									</td>
+								</tr>
+								<tr>
+									<th>
+										三级缓存
+									</th>
+									<td>
+										3M
+									</td>
+								</tr>
+								<tr>
+									<th>
+										芯片组
+									</th>
+									<td>
+										Intel HM57
+									</td>
+								</tr>
+								<tr>
+									<th>
+										内存容量
+									</th>
+									<td>
+										2GB
+									</td>
+								</tr>
+								<tr>
+									<th>
+										内存类型
+									</th>
+									<td>
+										DDR3
+									</td>
+								</tr>
+								<tr>
+									<th>
+										硬盘容量
+									</th>
+									<td>
+										320GB
+									</td>
+								</tr>
+								<tr>
+									<th>
+										光驱类型
+									</th>
+									<td>
+										外置 DVDRW刻录光驱
+									</td>
+								</tr>
+								<tr>
+									<th>
+										显示比例
+									</th>
+									<td>
+										宽屏16：9
+									</td>
+								</tr>
+								<tr>
+									<th>
+										屏幕类型
+									</th>
+									<td>
+										WLED; Truelife
+									</td>
+								</tr>
+								<tr>
+									<th>
+										内置蓝牙
+									</th>
+									<td>
+										支持
+									</td>
+								</tr>
+								<tr>
+									<th>
+										PC卡插槽
+									</th>
+									<td>
+										2
+									</td>
+								</tr>
+								<tr>
+									<th>
+										USB
+									</th>
+									<td>
+										2个USB 2.0端口,1个USB2.0/eSATA兼容端口
+									</td>
+								</tr>
+								<tr>
+									<th>
+										电池
+									</th>
+									<td>
+										标配6芯锂电电池 (2.2Ah)
+									</td>
+								</tr>
+								<tr>
+									<th>
+										尺寸
+									</th>
+									<td>
+										330.7*230.9*30.5/33.8
+									</td>
+								</tr>
+								<tr>
+									<th>
+										重量
+									</th>
+									<td>
+										3.0kg
+									</td>
+								</tr>
+					</table>
+				</div>
+					<div id="comment" class="tabContent comment">
+						<form id="commentForm" name="commentForm" method="post">
+							<input type="hidden" name="comment.goods.id" value="40289181303478af013035a454000061" />
+							<input type="hidden" id="forCommentId" name="forCommentId" />
+							<table class="sendTable">
+								<tr class="title">
+									<td width="100">
+										<span id="sendTitle">发表评论</span>
+									</td>
+									<td>
+										<a href="javascript: void(0);" id="sendComment" class="sendComment">切换到发表新评论&gt;&gt;</a>
+									</td>
+								</tr>
+								<tr>
+									<th>
+										评论内容: 
+									</th>
+									<td>
+										<textarea id="commentContent" name="comment.content" class="formTextarea"></textarea>
+									</td>
+								</tr>
+								<tr>
+									<th>
+										联系方式: 
+									</th>
+									<td>
+										<input type="text" name="comment.contact" class="formText" />
+									</td>
+								</tr>
+									<tr>
+					                	<th>
+					                		验证码: 
+					                	</th>
+					                    <td>
+					                    	<input type="text" id="commentCaptcha" name="j_captcha" class="formText captcha" />
+					                    	<img id="commentCaptchaImage" class="captchaImage" src="/shopxx/captcha.jpeg" alt="换一张" />
+					                    </td>
+					                </tr>
+								<tr>
+									<th>
+										&nbsp;
+									</th>
+									<td>
+										<input type="submit" class="formButton" value="提交评论" />
+									</td>
+								</tr>
+							</table>
+						</form>
+					</div>
+			</div>
+		</div>
+		<div class="blank"></div>
+<div id="friendLink" class="friendLink">
+	<div class="pictureFriendLink">
+		<div class="left"></div>
+		<div class="middle">
+			<ul>
+										<li>
+							<a href="http://www.shopxx.net" title="SHOP++官方网站" target="_blank">
+								<img src="/shopxx/upload/image/201101/1a1b183f3c124b2dae0e9d83818628d9.png">
+							</a>
+						</li>
+						<li>
+							<a href="https://www.tenpay.com" title="财付通" target="_blank">
+								<img src="/shopxx/upload/image/201101/64f5f4313c834b1caa7181deda4075c1.gif">
+							</a>
+						</li>
+						<li>
+							<a href="https://cmpay.10086.cn" title="手机支付" target="_blank">
+								<img src="/shopxx/upload/image/201101/a52ee3e2af9c46fda95127a4029bdaa0.gif">
+							</a>
+						</li>
+						<li>
+							<a href="http://www.icbc.com.cn" title="中国工商银行" target="_blank">
+								<img src="/shopxx/upload/image/201101/3fbb0969f70d4c0e8a47cf9684a6e821.gif">
+							</a>
+						</li>
+						<li>
+							<a href="https://www.alipay.com" title="支付宝" target="_blank">
+								<img src="/shopxx/upload/image/201101/ea773d0bf3b34c3faa9d7abb5bb8f16a.png">
+							</a>
+						</li>
+						<li>
+							<a href="http://bbs.shopxx.net" title="SHOP++官方论坛" target="_blank">
+								<img src="/shopxx/upload/image/201101/216a503ffc1c48fa97ab5a9430ec4d75.png">
+							</a>
+						</li>
+						<li>
+							<a href="http://www.boc.cn" title="中国银行" target="_blank">
+								<img src="/shopxx/upload/image/201101/3e2a5e38765342a3b9aa485cc118897b.gif">
+							</a>
+						</li>
+						<li>
+							<a href="https://www.99bill.com" title="快钱" target="_blank">
+								<img src="/shopxx/upload/image/201101/1cd7d017e6a843f081363ece98eef31f.gif">
+							</a>
+						</li>
+			</ul>
+		</div>
+		<div class="right"></div>
+	</div>
+	<div class="textFriendLink">
+		<div class="left"></div>
+		<div class="middle">
+			<ul>
+						<li>
+							<a href="http://www.shopxx.net" title="SHOP++官方网站" target="_blank">SHOP++官方网站</a>
+						</li>
+						<li>
+							<a href="http://bbs.shopxx.net" title="SHOP++官方论坛" target="_blank">SHOP++官方论坛</a>
+						</li>
+						<li>
+							<a href="http://www.pbc.gov.cn" title="中国人民银行" target="_blank">中国人民银行</a>
+						</li>
+						<li>
+							<a href="http://www.ccb.com" title="中国建设银行" target="_blank">中国建设银行</a>
+						</li>
+						<li>
+							<a href="http://www.icbc.com.cn" title="中国工商银行" target="_blank">中国工商银行</a>
+						</li>
+						<li>
+							<a href="https://www.tenpay.com" title="财付通" target="_blank">财付通</a>
+						</li>
+						<li>
+							<a href="https://cmpay.10086.cn" title="移动手机支付" target="_blank">移动手机支付</a>
+						</li>
+						<li>
+							<a href="https://www.99bill.com" title="快钱" target="_blank">快钱</a>
+						</li>
+						<li>
+							<a href="https://www.alipay.com" title="支付宝" target="_blank">支付宝</a>
+						</li>
+						<li>
+							<a href="http://www.ct10000.com" title="中国电信" target="_blank">中国电信</a>
+						</li>
+			</ul>
+		</div>
+		<div class="right"></div>
+	</div>
+</div>	</div>
+	<div class="blank"></div>
+<div class="footer">
+	<div class="bottomNavigation">
+							<dl>
+					<dd>
+						<a href="/shopxx/shop/article_list/questions.htm">常见问题</a>
+					</dd>
+					<dd>
+						<a href="/shopxx/shop/article_list/privacy.htm">隐私申明</a>
+					</dd>
+					<dd>
+						<a href="/shopxx/shop/article_list/terms.htm">交易条款</a>
+					</dd>
+					</dl>
+					<dl>
+					<dd>
+						<a href="/shopxx/shop/article_list/newbie.htm">新手上路</a>
+					</dd>
+					<dd>
+						<a href="/shopxx/shop/article_list/payment.htm">支付方式</a>
+					</dd>
+					<dd>
+						<a href="/shopxx/shop/article_list/shipping_method.htm">配送方式</a>
+					</dd>
+					</dl>
+					<dl>
+					<dd>
+						<a href="/shopxx/shop/article_list/service.htm">售后服务</a>
+					</dd>
+					<dd>
+						<a href="/shopxx/shop/article_list/service_guarantee.htm">服务保证</a>
+					</dd>
+					<dd>
+						<a href="/shopxx/shop/article_list/website_system.htm">网站制度</a>
+					</dd>
+					</dl>
+					<dl>
+					<dd>
+						<a href="/shopxx/shop/article_list/about_us.htm">关于我们</a>
+					</dd>
+					<dd>
+						<a href="/shopxx/shop/article_list/help.htm">帮助中心</a>
+					</dd>
+					<dd>
+						<a href="/shopxx/shop/article_list/shopping_guide.htm">购物指南</a>
+					</dd>
+					</dl>
+	</div>
+	<div class="footerInfo">
+		<ul>
+			<li><a href="#">关于商城</a>|</li>
+			<li><a href="#">帮助中心</a>|</li>
+			<li><a href="#">网站地图</a>|</li>
+			<li><a href="#">诚聘英才</a>|</li>
+			<li><a href="#">联系我们</a>|</li>
+			<li><a href="#">版权说明</a></li>
+		</ul>
+		<p>Copyright &copy; 2011 SHOP++. All rights reserved. 长沙鼎诚软件有限公司</p>
+			<p>Powered by <a class="systemName" href="http://www.shopxx.net" target="_blank">SHOP<span>++</span> V2.0</a></p>
+	</div>
+</div>	<script type="text/javascript" src="/shopxx/template/common/js/jquery.js"></script>
+	<script type="text/javascript" src="/shopxx/template/common/js/jquery.tools.js"></script>
+	<script type="text/javascript" src="/shopxx/template/common/js/jquery.zoomimage.js"></script>
+	<script type="text/javascript" src="/shopxx/template/shop/js/base.js"></script>
+	<script type="text/javascript" src="/shopxx/template/shop/js/shop.js"></script>
+	<script type="text/javascript">
+	$().ready( function() {
+	
+		$productSn = $("#productSn");
+		$price = $("#price");
+		$marketPrice = $("#marketPrice");
+		$buyInfo = $("#buyInfo");
+		$tipsTitle = $("#tipsTitle");
+		$tipsContent = $("#tipsContent");
+		$closeHighlight = $("#closeHighlight");
+		$specificationValue = $("#buyInfo li");
+		$quantity = $("#quantity");
+		$goodsButton = $("#goodsButton");
+	
+		// 添加商品浏览记录
+		$.addGoodsHistory("戴尔 Inspiron 13R", "/shopxx/html/201101/18da31776b5e4fcaaf25cac1b080cb0a.html");
+		
+			var productDatas = {};
+					productDatas['40289181303478af013035a454ac0062'] = {
+						productSn: "SN_3CE2C0E0AC4A",
+						price: "￥4999.00元",
+						marketPrice: "￥5998.80元",
+						isOutOfStock: false
+					};
+					productDatas['40289181303478af013035a455890063'] = {
+						productSn: "SN_35E002FE4F34",
+						price: "￥4999.00元",
+						marketPrice: "￥5998.80元",
+						isOutOfStock: true
+					};
+					productDatas['40289181303478af013035a455900064'] = {
+						productSn: "SN_4B9DC645999C",
+						price: "￥4999.00元",
+						marketPrice: "￥5998.80元",
+						isOutOfStock: true
+					};
+			
+			var specificationValueDatas = {};
+					specificationValueDatas['40289181303478af013035a454ac0062'] = new Array("c4cdb921fb6b42b7a634edd9117b1606");
+					specificationValueDatas['40289181303478af013035a455890063'] = new Array("c2fcc2a73f8940719d63c8df28faa244");
+					specificationValueDatas['40289181303478af013035a455900064'] = new Array("750f1c39471a4df99d0b91631c353051");
+			
+			var specificationValueSelecteds = new Array();
+			var selectedProductId = null;
+			
+			$specificationValue.click(function () {
+				var $this = $(this);
+				if ($this.hasClass("notAllowed")) {
+					return false;
+				}
+				
+				if ($this.hasClass("selected")) {
+					$this.removeClass("selected");
+				} else {
+					$this.addClass("selected");
+				}
+				$this.siblings("li").removeClass("selected");
+				$specificationValue.addClass("notAllowed");
+				
+				var $specificationValueSelected = $("#buyInfo li.selected");
+				if ($specificationValueSelected.length == 1) {
+					$specificationValueSelected.siblings("li").removeClass("notAllowed");
+				}
+				
+				var specificationValueSelecteds = new Array();
+				selectedProductId = null;
+				var tipsContentText = "";
+				$specificationValueSelected.each(function(i) {
+					var $this = $(this);
+					tipsContentText += $this.attr("title") + " ";
+					specificationValueSelecteds.push($this.attr("specificationValueId"));
+				});
+				if (tipsContentText != "") {
+					$tipsTitle.text("已选择: ");
+					$tipsContent.text(tipsContentText);
+				} else {
+					$tipsTitle.text("请选择: ");
+					$tipsContent.text("颜色 ");
+				}
+				$.each(specificationValueDatas, function(i) {
+					if (arrayContains(specificationValueDatas[i], specificationValueSelecteds)) {
+						for (var j in specificationValueDatas[i]) {
+							$("." + specificationValueDatas[i][j]).removeClass("notAllowed");
+						}
+					}
+					if (arrayEqual(specificationValueDatas[i], specificationValueSelecteds)) {
+						$productSn = $productSn.text(productDatas[i].productSn);
+						$price = $price.text(productDatas[i].price);
+						$marketPrice = $marketPrice.text(productDatas[i].marketPrice);
+						selectedProductId = i;
+						$buyInfo.removeClass("highlight");
+						if (productDatas[i].isOutOfStock) {
+							$goodsButton.addClass("goodsNotifyButton");
+							$goodsButton.removeClass("addCartItemButton");
+						} else {
+							$goodsButton.addClass("addCartItemButton");
+							$goodsButton.removeClass("goodsNotifyButton");
+						}
+					}
+				});
+			});
+			
+			// 添加商品至购物车/到货通知
+			$goodsButton.click(function () {
+				var $this = $(this);
+				if (selectedProductId != null) {
+					if ($this.hasClass("addCartItemButton")) {
+						$.addCartItem(selectedProductId, $quantity.val());
+					} else {
+						location.href = '/shopxx/shop/goods_notify!add.action?product.id=' + selectedProductId;
+					}
+				} else {
+					$buyInfo.addClass("highlight");
+					$tipsTitle.text('系统提示:');
+					$tipsContent.text('请选择商品信息!');
+				}
+			});
+			
+			// 关闭购买信息提示
+			$closeHighlight.click(function () {
+				$buyInfo.removeClass("highlight");
+				$tipsTitle.html("请选择: ");
+				$tipsContent.html("颜色 ");
+			});
+			
+			// 判断数组是否包含另一个数组中所有元素
+			function arrayContains(array1, array2) {
+				if(!(array1 instanceof Array) || !(array2 instanceof Array)) {
+					return false;
+				}
+				if(array1.length < array2.length) {
+					return false;
+				}
+				for (var i in array2) {
+					if ($.inArray(array2[i], array1) == -1) {
+						return false;
+					}
+				}
+				return true;
+			}
+			
+			// 判断两个数组中的所有元素是否相同
+			function arrayEqual(array1, array2) {
+				if(!(array1 instanceof Array) || !(array2 instanceof Array)) {
+					return false;
+				}
+				if(array1.length != array2.length) {
+					return false;
+				}
+				for (var i in array2) {
+					if ($.inArray(array2[i], array1) == -1) {
+						return false;
+					}
+				}
+				return true;
+			}
+	
+	})
+	</script>
+</body>
+</html>

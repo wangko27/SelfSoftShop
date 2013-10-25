@@ -1,0 +1,380 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>订单查询 - Powered By SHOP++</title>
+<meta name="Author" content="SHOP++ Team" />
+<meta name="Copyright" content="SHOP++" />
+<meta name="keywords" content="订单查询" />
+<meta name="description" content="订单查询" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link href="/shopxx/template/shop/css/base.css" rel="stylesheet" type="text/css" />
+<link href="/shopxx/template/shop/css/shop.css" rel="stylesheet" type="text/css" />
+<!--[if lte IE 6]>
+	<script type="text/javascript" src="/shopxx/template/common/js/belatedPNG.js"></script>
+	<script type="text/javascript">
+		// 解决IE6透明PNG图片BUG
+		DD_belatedPNG.fix(".belatedPNG");
+	</script>
+<![endif]-->
+</head>
+<body class="articleContent">
+<div id="header" class="header belatedPNG">
+	<div class="headerTop belatedPNG">
+		<div class="headerTopContent">
+			<div class="headerLoginInfo">
+				您好<span id="headerLoginMemberUsername"></span>, 欢迎来到SHOP++商城!
+				<a href="javascript: void(0);" id="headerShowLoginWindow">登录</a>
+				<a href="/shopxx/shop/member_center!index.action" id="headerMemberCenter">会员中心</a>
+				<a href="javascript: void(0);" id="headerShowRegisterWindow">注册</a>
+				<a href="/shopxx/shop/member!logout.action" id="headerLogout">[退出]</a>
+			</div>
+			<div class="headerTopNav">
+						<a href="javascript: addFavorite('http://localhost','SHOP++商城')"
+							>收藏本站
+						</a>
+						|
+						<a href="/shopxx/shop/article_list/about_us.htm"
+							>关于我们
+						</a>
+						|
+						<a href="/shopxx/shop/article_list/help.htm"
+							>帮助中心
+						</a>
+						|
+						<a href="http://bbs.shopxx.net"
+							 target="_blank">SHOP++论坛
+						</a>
+						|
+						<a href="http://www.shopxx.net"
+							 target="_blank">SHOP++网站
+						</a>
+						
+			</div>
+		</div>
+	</div>
+	<div class="headerMiddle">
+		<div class="headerInfo">
+				7×24小时服务热线: <strong>400-8888888</strong>
+		</div>
+		<div class="headerLogo">
+			<a href="/shopxx/"><img class="belatedPNG" src="/shopxx/images/logo.jpg" alt="SHOP++商城" /></a>
+		</div>
+		<div class="headerSearch belatedPNG">
+			<form id="goodsSearchForm" action="/shopxx/shop/goods!search.action" method="post">
+				<div class="headerSearchText">
+					<input type="text" id="goodsSearchKeyword" name="pager.keyword" value="请输入关键词..." />
+				</div>
+				<input type="submit" class="headerSearchButton" value="" />
+				<div class="hotKeyword">
+					热门关键词: 
+						<a href="/shopxx/shop/goods!search.action?pager.keyword=%E8%8B%B9%E6%9E%9C">苹果</a>
+						<a href="/shopxx/shop/goods!search.action?pager.keyword=%E6%9D%BE%E4%B8%8B">松下</a>
+						<a href="/shopxx/shop/goods!search.action?pager.keyword=%E7%B4%A2%E5%B0%BC">索尼</a>
+						<a href="/shopxx/shop/goods!search.action?pager.keyword=%E4%B8%89%E6%98%9F">三星</a>
+						<a href="/shopxx/shop/goods!search.action?pager.keyword=%E8%AF%BA%E5%9F%BA%E4%BA%9A">诺基亚</a>
+						<a href="/shopxx/shop/goods!search.action?pager.keyword=%E6%B5%B7%E5%B0%94">海尔</a>
+						<a href="/shopxx/shop/goods!search.action?pager.keyword=%E6%83%A0%E6%99%AE">惠普</a>
+						<a href="/shopxx/shop/goods!search.action?pager.keyword=%E4%B8%9C%E8%8A%9D">东芝</a>
+						<a href="/shopxx/shop/goods!search.action?pager.keyword=LG">LG</a>
+						<a href="/shopxx/shop/goods!search.action?pager.keyword=%E8%81%94%E6%83%B3">联想</a>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="headerBottom">
+		<input type="button" class="cartItemListButton" value="" onclick="window.open('/shopxx/shop/cart_item!list.action')" />
+		<input type="button" class="orderButton" value="" onclick="window.open('/shopxx/shop/cart_item!list.action')" />
+		<div class="headerMiddleNav">
+			<div class="headerMiddleNavLeft belatedPNG"></div>
+			<ul class="headerMiddleNavContent belatedPNG">
+						<li>
+							<a href="/shopxx/"
+								>首页
+							</a>
+						</li>
+						<li>
+							<a href="/shopxx/shop/goods_list/office_computer.htm"
+								>电脑办公
+							</a>
+						</li>
+						<li>
+							<a href="/shopxx/shop/goods_list/mobile_digita.htm"
+								>手机数码
+							</a>
+						</li>
+						<li>
+							<a href="/shopxx/shop/goods_list/fashion_video.htm"
+								>时尚影音
+							</a>
+						</li>
+						<li>
+							<a href="/shopxx/shop/goods_list/home_appliances.htm"
+								>家用电器
+							</a>
+						</li>
+						<li>
+							<a href="/shopxx/shop/article_list/help.htm"
+								>帮助中心
+							</a>
+						</li>
+						<li>
+							<a href="/shopxx/shop/leave_message.htm"
+								>在线留言
+							</a>
+						</li>
+			</ul>
+			<div class="headerMiddleNavRight belatedPNG"></div>
+		</div>
+	</div>
+</div>	<div class="body">
+		<div class="bodyLeft">
+			<div class="recommendArticle">
+				<div class="top">推荐文章</div>
+				<div class="middle">
+					<ul>
+								<li>
+									<span class="icon">&nbsp;</span>
+									<a href="/shopxx/html/201101/5d82028ad6124d8b829bef19a797f7f4.html" title="购物流程">购物流程</a>
+								</li>
+					</ul>
+				</div>
+				<div class="bottom"></div>
+			</div>
+			<div class="blank"></div>
+			<div class="hotArticle">
+				<div class="top">热点文章</div>
+				<div class="middle">
+					<ul>
+								<li class="number1">
+									<span class="icon">&nbsp;</span>
+									<a href="/shopxx/html/201101/5d82028ad6124d8b829bef19a797f7f4.html" title="购物流程">购物流程</a>
+								</li>
+								<li class="number2">
+									<span class="icon">&nbsp;</span>
+									<a href="/shopxx/html/201101/f9a5c661d4d44af0bbb175ee0d93c7e2.html" title="会员等级">会员等级</a>
+								</li>
+								<li class="number3">
+									<span class="icon">&nbsp;</span>
+									<a href="/shopxx/html/201101/e6a82018ed20467e889b89872faca3f0.html" title="积分说明">积分说明</a>
+								</li>
+								<li class="number4">
+									<span class="icon">&nbsp;</span>
+									<a href="/shopxx/html/201101/b5f4423d486c44239767441e7c012229.html" title="订单查询">订单查询</a>
+								</li>
+					</ul>
+				</div>
+				<div class="bottom"></div>
+			</div>
+		</div>
+		<div class="bodyRight">
+			<div class="listBar">
+				<div class="left"></div>
+				<div class="middle">
+					<div class="path">
+						<a href="/shopxx/" class="shop"><span class="icon">&nbsp;</span>首页</a> &gt;
+							<a href="/shopxx/shop/article_list/shopping_guide.htm">购物指南</a> &gt;
+							<a href="/shopxx/shop/article_list/newbie.htm">新手上路</a> &gt;
+					</div>
+					<div id="articleSearch" class="articleSearch">
+						<form id="articleSearchForm" action="/shopxx/shop/article!search.action" method="post">
+							<input type="text" name="pager.keyword" id="articleSearchKeyword" class="keyword" value="请输入关键词..." />
+							<input type="submit" class="searchButton" value="" />
+						</form>
+					</div>
+				</div>
+				<div class="right"></div>
+			</div>
+			<div class="blank"></div>
+			<div class="articleContentDetail">
+				<div class="articleContentTop"></div>
+				<div class="articleContentMiddle">
+					<div class="title">订单查询</div>
+                    <div class="blank"></div>
+                    <div class="info">
+                    	<span class="createDate">日期: 2011-01-01 00: 00</span>
+                    		<span class="author">作者: SHOP++</span>
+                    	点击: <span id="hits"></span> 次
+                    	<span class="fontSize">【<a id="changeBigFontSize" href="javascript: void(0);">大</a> <a id="changeNormalFontSize" href="javascript: void(0);">中</a> <a id="changeSmallFontSize" href="javascript: void(0);">小</a>】</span>
+                    </div>
+					<div id="articleContent" class="content">
+						<p>登录会员后，进入<strong>“个人中心”</strong> – <strong>“订单列表”</strong>可查询到订单状态。</p><p>1、<strong>等待处理/未付款</strong>：订单尚未获得确认，正常工作时间内，最迟10小时可以获得确认，如非正常工作时间，需要等到上班时间确认。</p><p>2、<strong>正在处理/未付款</strong>：订单已获得确认，请按照确认后的总金额付款，付款完毕后可返回“个人中心”查看订单状态。</p><p>3、<strong>已付款/未发货</strong>：这时订单已在我们工作人员的处理流程中。</p><p>4、<strong>已付款/已发货</strong>：您的货物已经发出，请您稍后注意查收，订单详细中可查到快递公司和快递单号。</p><p>5、<strong>订单完成</strong>：订单已成功完成交易，请对我们的商品进行评论，如收到产品有质量问题，请直接与售后部门联系。</p><p>6、<strong>订单作废</strong>：由于特殊原因，您的订单已经失效。</p>
+             			<div class="blank"></div>
+                    </div>
+				</div>
+				<div class="articleContentBottom"></div>
+			</div>
+		</div>
+		<div class="blank"></div>
+<div id="friendLink" class="friendLink">
+	<div class="pictureFriendLink">
+		<div class="left"></div>
+		<div class="middle">
+			<ul>
+										<li>
+							<a href="http://www.shopxx.net" title="SHOP++官方网站" target="_blank">
+								<img src="/shopxx/upload/image/201101/1a1b183f3c124b2dae0e9d83818628d9.png">
+							</a>
+						</li>
+						<li>
+							<a href="https://www.tenpay.com" title="财付通" target="_blank">
+								<img src="/shopxx/upload/image/201101/64f5f4313c834b1caa7181deda4075c1.gif">
+							</a>
+						</li>
+						<li>
+							<a href="https://cmpay.10086.cn" title="手机支付" target="_blank">
+								<img src="/shopxx/upload/image/201101/a52ee3e2af9c46fda95127a4029bdaa0.gif">
+							</a>
+						</li>
+						<li>
+							<a href="http://www.icbc.com.cn" title="中国工商银行" target="_blank">
+								<img src="/shopxx/upload/image/201101/3fbb0969f70d4c0e8a47cf9684a6e821.gif">
+							</a>
+						</li>
+						<li>
+							<a href="https://www.alipay.com" title="支付宝" target="_blank">
+								<img src="/shopxx/upload/image/201101/ea773d0bf3b34c3faa9d7abb5bb8f16a.png">
+							</a>
+						</li>
+						<li>
+							<a href="http://bbs.shopxx.net" title="SHOP++官方论坛" target="_blank">
+								<img src="/shopxx/upload/image/201101/216a503ffc1c48fa97ab5a9430ec4d75.png">
+							</a>
+						</li>
+						<li>
+							<a href="http://www.boc.cn" title="中国银行" target="_blank">
+								<img src="/shopxx/upload/image/201101/3e2a5e38765342a3b9aa485cc118897b.gif">
+							</a>
+						</li>
+						<li>
+							<a href="https://www.99bill.com" title="快钱" target="_blank">
+								<img src="/shopxx/upload/image/201101/1cd7d017e6a843f081363ece98eef31f.gif">
+							</a>
+						</li>
+			</ul>
+		</div>
+		<div class="right"></div>
+	</div>
+	<div class="textFriendLink">
+		<div class="left"></div>
+		<div class="middle">
+			<ul>
+						<li>
+							<a href="http://www.shopxx.net" title="SHOP++官方网站" target="_blank">SHOP++官方网站</a>
+						</li>
+						<li>
+							<a href="http://bbs.shopxx.net" title="SHOP++官方论坛" target="_blank">SHOP++官方论坛</a>
+						</li>
+						<li>
+							<a href="http://www.pbc.gov.cn" title="中国人民银行" target="_blank">中国人民银行</a>
+						</li>
+						<li>
+							<a href="http://www.ccb.com" title="中国建设银行" target="_blank">中国建设银行</a>
+						</li>
+						<li>
+							<a href="http://www.icbc.com.cn" title="中国工商银行" target="_blank">中国工商银行</a>
+						</li>
+						<li>
+							<a href="https://www.tenpay.com" title="财付通" target="_blank">财付通</a>
+						</li>
+						<li>
+							<a href="https://cmpay.10086.cn" title="移动手机支付" target="_blank">移动手机支付</a>
+						</li>
+						<li>
+							<a href="https://www.99bill.com" title="快钱" target="_blank">快钱</a>
+						</li>
+						<li>
+							<a href="https://www.alipay.com" title="支付宝" target="_blank">支付宝</a>
+						</li>
+						<li>
+							<a href="http://www.ct10000.com" title="中国电信" target="_blank">中国电信</a>
+						</li>
+			</ul>
+		</div>
+		<div class="right"></div>
+	</div>
+</div>		<script type="text/javascript" src="/shopxx/template/common/js/jquery.js"></script>
+		<script type="text/javascript" src="/shopxx/template/common/js/jquery.tools.js"></script>
+		<script type="text/javascript" src="/shopxx/template/shop/js/base.js"></script>
+		<script type="text/javascript" src="/shopxx/template/shop/js/shop.js"></script>
+		<script type="text/javascript">
+		$().ready( function() {
+		
+			$hits = $("#hits");
+		
+			// 统计文章点击数
+			$.ajax({
+				url: "/shopxx/shop/article!ajaxHits.action?id=402881833054c3810130551b8b830038",
+				dataType: "json",
+				success: function(data) {
+					if (data.status == "success") {
+						$hits.text(data.hits);
+					}
+				}
+			});
+		
+		});
+		</script>
+	</div>
+	<div class="blank"></div>
+<div class="footer">
+	<div class="bottomNavigation">
+							<dl>
+					<dd>
+						<a href="/shopxx/shop/article_list/questions.htm">常见问题</a>
+					</dd>
+					<dd>
+						<a href="/shopxx/shop/article_list/privacy.htm">隐私申明</a>
+					</dd>
+					<dd>
+						<a href="/shopxx/shop/article_list/terms.htm">交易条款</a>
+					</dd>
+					</dl>
+					<dl>
+					<dd>
+						<a href="/shopxx/shop/article_list/newbie.htm">新手上路</a>
+					</dd>
+					<dd>
+						<a href="/shopxx/shop/article_list/payment.htm">支付方式</a>
+					</dd>
+					<dd>
+						<a href="/shopxx/shop/article_list/shipping_method.htm">配送方式</a>
+					</dd>
+					</dl>
+					<dl>
+					<dd>
+						<a href="/shopxx/shop/article_list/service.htm">售后服务</a>
+					</dd>
+					<dd>
+						<a href="/shopxx/shop/article_list/service_guarantee.htm">服务保证</a>
+					</dd>
+					<dd>
+						<a href="/shopxx/shop/article_list/website_system.htm">网站制度</a>
+					</dd>
+					</dl>
+					<dl>
+					<dd>
+						<a href="/shopxx/shop/article_list/about_us.htm">关于我们</a>
+					</dd>
+					<dd>
+						<a href="/shopxx/shop/article_list/help.htm">帮助中心</a>
+					</dd>
+					<dd>
+						<a href="/shopxx/shop/article_list/shopping_guide.htm">购物指南</a>
+					</dd>
+					</dl>
+	</div>
+	<div class="footerInfo">
+		<ul>
+			<li><a href="#">关于商城</a>|</li>
+			<li><a href="#">帮助中心</a>|</li>
+			<li><a href="#">网站地图</a>|</li>
+			<li><a href="#">诚聘英才</a>|</li>
+			<li><a href="#">联系我们</a>|</li>
+			<li><a href="#">版权说明</a></li>
+		</ul>
+		<p>Copyright &copy; 2011 SHOP++. All rights reserved. 长沙鼎诚软件有限公司</p>
+			<p>Powered by <a class="systemName" href="http://www.shopxx.net" target="_blank">SHOP<span>++</span> V2.0</a></p>
+	</div>
+</div></body>
+</html>

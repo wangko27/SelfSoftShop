@@ -1,0 +1,300 @@
+@charset "utf-8";
+
+/***
+ *	SHOP++ Install Style
+ *
+ *	http://www.shopxx.net
+ *
+ *	Copyright © 2010 shopxx.net All Rights Reserved.
+ **/
+ 
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0px;
+	padding: 0px;
+}
+
+html, body {
+	font: 12px tahoma, Arial, "宋体", Verdana, sans-serif;
+	background-color: #ffffff;
+}
+
+a {
+	color: #656d77;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #ff6600;
+	text-decoration: none;
+}
+
+img {
+	border: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+ul {
+	list-style-type: none;
+}
+
+.blank {
+	width: 100%;
+	height: 10px;
+	clear: both;
+	overflow: hidden;
+}
+
+input, select, label {
+	vertical-align: middle
+}
+
+.green {
+	color: green;
+}
+
+.gray {
+	color: gray;
+}
+
+.red {
+	color: red;
+}
+
+.requireField {
+	line-height: 12px;
+	padding: 5px;
+	zoom: 1;
+}
+
+input.formText {
+	width: 200px;
+	padding: 5px;
+	border-top: 1px solid #999999;
+	border-right: 1px solid #e1e1e1;
+	border-bottom: 1px solid #e1e1e1;
+	border-left: 1px solid #999999;
+}
+
+input.formText:hover {
+	border: 1px solid #ff9b1f;
+	background-color: #fefbf7;
+}
+
+input.formText:focus {
+	background-color: #fff8ef;
+}
+
+body.install {
+	padding: 10px 0px;
+}
+
+.install .header {
+	width: 1000px;
+	clear: both;
+	margin: 0px auto;
+}
+
+.install .header .title {
+	width: 978px;
+	height: 43px;
+	line-height: 43px;
+	clear: both;
+	padding: 0px 10px;
+	color: #4e4e4e;
+	border-left: 1px solid #a4bed5;
+	border-right: 1px solid #a4bed5;
+	background: url(../images/install_x_bg.gif) 0px 0px repeat-x;
+}
+
+.install .header .banner {
+	width: 998px;
+	height: 100px;
+	clear: both;
+	padding-bottom: 3px;
+	border-left: 1px solid #a4bed5;
+	border-right: 1px solid #a4bed5;
+	background: url(../images/install_bg.gif) 0px 0px no-repeat;
+}
+
+.install .body {
+	width: 998px;
+	clear: both;
+	margin: 0px auto 10px auto;
+	border-left: 1px solid #a4bed5;
+	border-right: 1px solid #a4bed5;
+	border-bottom: 1px solid #a4bed5;
+}
+
+.install .bodyLeft {
+	width: 220px;
+	float: left;
+}
+
+.install .bodyLeft ul {
+	width: 220px;
+	height: 300px;
+	background: url(../images/install_bg.gif) 0px -120px no-repeat;
+}
+
+.install .bodyLeft ul li {
+	height: 60px;
+	line-height: 60px;
+	padding-left: 30px;
+	clear: both;
+}
+
+.install .bodyLeft ul li .icon {
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	display: inline-block;
+	display: -moz-inline-stack;
+	zoom: 1;
+	*display: inline;
+	background: url(../images/install_bg.gif) -390px -120px no-repeat;
+}
+
+.install .bodyLeft ul li .current {
+	background: url(../images/install_bg.gif) -420px -120px no-repeat;
+}
+
+.install .bodyRight {
+	width: 778px;
+	float: right;
+}
+
+.install .bodyRight iframe {
+	width: 778px;
+	height: 400px;
+}
+
+.install .bodyRight table {
+	width: 772px;
+	margin: 0px 3px;
+	border: 1px solid #c8d8e6;
+}
+
+.install .bodyRight table th {
+	padding: 0px 10px;
+	line-height: 40px;
+	font-size: 14px;
+	text-align: left;
+	color: #074b88;
+	background-color: #eef4f7;
+}
+
+.install .bodyRight table td {
+	height: 35px;
+	line-height: 35px;
+	padding: 0px 10px;
+	color: #303030;
+	border: 1px solid #e8e8e8;
+}
+
+.install .bodyRight .message {
+	line-height: 80px;
+	color: red;
+}
+
+.install .bodyRight .exception {
+	height: 300px;
+	line-height: 20px;
+	padding: 5px;
+	text-align: left;
+	color: #6f6f6f;
+	overflow-y: scroll;
+	scrollbar-face-color: #ffffff;
+	scrollbar-shadow-color: #a4bed5;
+	scrollbar-highlight-color: #a4bed5;
+	scrollbar-3dlight-color: #ffffff;
+	scrollbar-darkshadow-color: #ffffff;
+	scrollbar-track-color: #ffffff;
+	scrollbar-arrow-color: #a4bed5;
+}
+
+.install .buttonArea {
+	width: 988px;
+	height: 60px;
+	line-height: 60px;
+	clear: both;
+	padding-right: 10px;
+	text-align: right;
+	background: url(../images/install_x_bg.gif) 0px -60px repeat-x;
+}
+
+.install .body .formButton {
+	width: 125px;
+	height: 34px;
+	line-height: 34px;
+	text-align: center;
+	outline: none;
+	cursor: pointer;
+	font-size: 12px;
+	border: none;
+	background: url(../images/install_bg.gif) -240px -120px no-repeat;
+}
+
+.install .body .formButton:hover {
+	background: url(../images/install_bg.gif) -240px -180px no-repeat;
+}
+
+.install .footer {
+	width: 1000px;
+	clear: both;
+	margin: 0px auto;
+}
+
+.install .footer .copyright {
+	line-height: 40px;
+	text-align: right;
+	color: #888888;
+}
+
+.install .loadingBar {
+	width: 208px;
+	height: 20px;
+	line-height: 20px;
+	display: inline-block;
+	display: -moz-inline-stack;
+	zoom: 1;
+	*display: inline;
+	background: url(../images/loading_bar.gif) center no-repeat;
+}
+
+.install .installSuccess {
+	width: 647px;
+	height: 113px;
+	display: none;
+	clear: both;
+	padding: 10px 30px;
+	margin: 40px 0px 20px 40px;
+	font-family: "Microsoft YaHei";
+	background: url(../images/install_bg.gif) 0px -450px no-repeat;
+}
+
+.install .installSuccess strong {
+	line-height: 50px;
+	display: block;
+	font-size: 18px;
+	color: #ffffff;
+}
+
+.install .installSuccess span {
+	display: block;
+	color: #ffffff;
+	font-size: 14px;
+}
+
+.install .installUrl {
+	width: 643px;
+	height: 40px;
+	line-height: 40px;
+	display: none;
+	margin: 0px 0px 40px 40px;
+	text-align: center;
+	border: 2px solid #e3e3e3;
+}

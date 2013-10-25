@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<shopxx> 
+	<description>SHOP++配置文件</description>  
+	<setting> 
+		<systemName>SHOP++网店管理系统</systemName>  
+		<systemVersion>2.0.7</systemVersion>  
+		<systemDescription>SHOP++是基于JAVA技术的开源网店系统，主要应用于电子商务领域内的网上购物、网上交易、交易信息发布等系统的构建。致力于为个人和企业提供安全、稳定、高效、强大的电子商务解决方案，并推进国内电子商务技术和开源技术的发展而不断努力。</systemDescription>  
+		<contextPath>/shopxx</contextPath>  
+		<imageUploadPath>/upload/image/{date(yyyyMM)}</imageUploadPath>  
+		<imageBrowsePath>/upload/image</imageBrowsePath>  
+		<adminLoginUrl>/admin/index.jsp</adminLoginUrl>  
+		<adminLoginProcessingUrl>/admin/login/check</adminLoginProcessingUrl>  
+		<isShowPoweredInfo>true</isShowPoweredInfo>  
+		<shopName>SHOP++商城</shopName>  
+		<shopUrl>http://localhost</shopUrl>  
+		<shopLogoPath>/images/logo.jpg</shopLogoPath>  
+		<hotSearch>苹果,松下,索尼,三星,诺基亚,海尔,惠普,东芝,LG,联想</hotSearch>  
+		<metaKeywords>SHOP++体验商城</metaKeywords>  
+		<metaDescription>SHOP++是基于JAVA技术的开源网店系统，主要应用于电子商务领域内的网上购物、网上交易、交易信息发布等系统的构建。致力于为个人和企业提供安全、稳定、高效、强大的电子商务解决方案，并推进国内电子商务技术和开源技术的发展而不断努力。</metaDescription>  
+		<address>湖南长沙经济技术开发区</address>  
+		<phone>400-8888888</phone>  
+		<zipCode>400000</zipCode>  
+		<email>admin@shopxx.net</email>  
+		<certtext>湘ICP备10000000号</certtext>  
+		<currencyType>CNY</currencyType>  
+		<currencySign>￥</currencySign>  
+		<currencyUnit>元</currencyUnit>  
+		<priceScale>2</priceScale>  
+		<priceRoundType>roundHalfUp</priceRoundType>  
+		<storeAlertCount>5</storeAlertCount>  
+		<storeFreezeTime>order</storeFreezeTime>  
+		<uploadLimit>1024</uploadLimit>  
+		<isLoginFailureLock>true</isLoginFailureLock>  
+		<loginFailureLockCount>5</loginFailureLockCount>  
+		<loginFailureLockTime>5</loginFailureLockTime>  
+		<isRegisterEnabled>true</isRegisterEnabled>  
+		<watermarkImagePath>/images/watermark.jpg</watermarkImagePath>  
+		<watermarkPosition>bottomRight</watermarkPosition>  
+		<watermarkAlpha>50</watermarkAlpha>  
+		<bigGoodsImageWidth>500</bigGoodsImageWidth>  
+		<bigGoodsImageHeight>500</bigGoodsImageHeight>  
+		<smallGoodsImageWidth>300</smallGoodsImageWidth>  
+		<smallGoodsImageHeight>300</smallGoodsImageHeight>  
+		<thumbnailGoodsImageWidth>140</thumbnailGoodsImageWidth>  
+		<thumbnailGoodsImageHeight>140</thumbnailGoodsImageHeight>  
+		<defaultBigGoodsImagePath>/images/default_big_goods_image.jpg</defaultBigGoodsImagePath>  
+		<defaultSmallGoodsImagePath>/images/default_small_goods_image.jpg</defaultSmallGoodsImagePath>  
+		<defaultThumbnailGoodsImagePath>/images/default_thumbnail_goods_image.jpg</defaultThumbnailGoodsImagePath>  
+		<isShowMarketPrice>true</isShowMarketPrice>  
+		<defaultMarketPriceOperator>multiply</defaultMarketPriceOperator>  
+		<defaultMarketPriceNumber>1.2</defaultMarketPriceNumber>  
+		<smtpFromMail>test@shopxx.net</smtpFromMail>  
+		<smtpHost>smtp.shopxx.net</smtpHost>  
+		<smtpPort>25</smtpPort>  
+		<smtpUsername>test</smtpUsername>  
+		<smtpPassword>test</smtpPassword>  
+		<scoreType>orderAmount</scoreType>  
+		<scoreScale>1</scoreScale>  
+		<buildHtmlDelayTime>30</buildHtmlDelayTime>  
+		<isGzipEnabled>false</isGzipEnabled>  
+		<isInstantMessagingEnabled>true</isInstantMessagingEnabled>  
+		<instantMessagingPosition>right</instantMessagingPosition>  
+		<instantMessagingTitle>7 × 24小时服务</instantMessagingTitle>  
+		<isLeaveMessageEnabled>true</isLeaveMessageEnabled>  
+		<isLeaveMessageCaptchaEnabled>true</isLeaveMessageCaptchaEnabled>  
+		<leaveMessageDisplayType>direct</leaveMessageDisplayType>  
+		<isCommentEnabled>true</isCommentEnabled>  
+		<isCommentCaptchaEnabled>true</isCommentCaptchaEnabled>  
+		<commentAuthority>member</commentAuthority>  
+		<commentDisplayType>direct</commentDisplayType> 
+	</setting>  
+	<paymentProduct> 
+		<tenpayDirect> 
+			<name>财付通（即时交易）</name>  
+			<description> <![CDATA[中国领先的在线支付平台，致力于为互联网用户和企业提供安全、便捷、专业的在线支付服务。 <a href="http://union.tenpay.com/mch/mch_register.shtml?sp_suggestuser=admin@shopxx.net" class="red" target="_blank"><span class="red">立即申请</span></a>]]> </description>  
+			<bargainorIdName>商户号</bargainorIdName>  
+			<bargainorKeyName>密钥</bargainorKeyName>  
+			<currencyTypes>CNY</currencyTypes>  
+			<logoPath>/template/admin/images/payment/tenpay_direct_icon.gif</logoPath>  
+			<className>net.shopxx.payment.TenpayDirect</className> 
+		</tenpayDirect>  
+		<tenpayPartner> 
+			<name>财付通（担保交易）</name>  
+			<description>中国领先的在线支付平台，致力于为互联网用户和企业提供安全、便捷、专业的在线支付服务。</description>  
+			<bargainorIdName>商户号</bargainorIdName>  
+			<bargainorKeyName>密钥</bargainorKeyName>  
+			<currencyTypes>CNY</currencyTypes>  
+			<logoPath>/template/admin/images/payment/tenpay_partner_icon.gif</logoPath>  
+			<className>net.shopxx.payment.TenpayPartner</className> 
+		</tenpayPartner>  
+		<alipayDirect> 
+			<name>支付宝（即时交易）</name>  
+			<description> <![CDATA[支付宝即时交易，付款后立即到账，无预付/年费，单笔费率阶梯最低0.7%，无流量限制。 <a href="https://www.alipay.com/himalayas/practicality_customer.htm?customer_external_id=C4393933195131654818&market_type=from_agent_contract&pro_codes=61F99645EC0DC4380ADE569DD132AD7A" target="_blank"><span class="red">立即申请</span></a>]]> </description>  
+			<bargainorIdName>合作身份者ID</bargainorIdName>  
+			<bargainorKeyName>安全校验码</bargainorKeyName>  
+			<currencyTypes>CNY</currencyTypes>  
+			<logoPath>/template/admin/images/payment/alipay_direct_icon.gif</logoPath>  
+			<className>net.shopxx.payment.AlipayDirect</className> 
+		</alipayDirect>  
+		<alipayPartner> 
+			<name>支付宝（担保交易）</name>  
+			<description>支付宝担保交易，买家先付款到支付宝，支付宝收到买家付款后即时通知卖家发货，买家收到货物满意后通知支付宝付款给卖家。</description>  
+			<bargainorIdName>合作身份者ID</bargainorIdName>  
+			<bargainorKeyName>安全校验码</bargainorKeyName>  
+			<currencyTypes>CNY</currencyTypes>  
+			<logoPath>/template/admin/images/payment/alipay_partner_icon.gif</logoPath>  
+			<className>net.shopxx.payment.AlipayPartner</className> 
+		</alipayPartner>  
+		<yeepay> 
+			<name>易宝支付</name>  
+			<description>中国领先的独立第三方支付平台，致力于为广大商家和消费者提供“安全、简单、快乐”的专业电子支付解决方案和服务。</description>  
+			<bargainorIdName>商户编号</bargainorIdName>  
+			<bargainorKeyName>密钥</bargainorKeyName>  
+			<currencyTypes>CNY</currencyTypes>  
+			<logoPath>/template/admin/images/payment/yeepay_icon.gif</logoPath>  
+			<className>net.shopxx.payment.Yeepay</className> 
+		</yeepay>  
+		<pay99bill> 
+			<name>快钱</name>  
+			<description>快钱是国内领先的独立第三方支付企业，旨在为各类企业及个人 提供安全、便捷和保密的综合电子支付服务。</description>  
+			<bargainorIdName>账户号</bargainorIdName>  
+			<bargainorKeyName>密钥</bargainorKeyName>  
+			<currencyTypes>CNY</currencyTypes>  
+			<logoPath>/template/admin/images/payment/pay99bill_icon.gif</logoPath>  
+			<className>net.shopxx.payment.Pay99bill</className> 
+		</pay99bill> 
+	</paymentProduct>  
+	<logConfig> 
+		<item operation="系统设置" actionClass="net.shopxx.action.admin.SettingAction" actionMethod="update"/>  
+		<item operation="添加管理员" actionClass="net.shopxx.action.admin.AdminAction" actionMethod="save"/>  
+		<item operation="删除管理员" actionClass="net.shopxx.action.admin.AdminAction" actionMethod="delete"/>  
+		<item operation="编辑管理员" actionClass="net.shopxx.action.admin.AdminAction" actionMethod="update"/>  
+		<item operation="添加会员" actionClass="net.shopxx.action.admin.MemberAction" actionMethod="save"/>  
+		<item operation="删除会员" actionClass="net.shopxx.action.admin.MemberAction" actionMethod="delete"/>  
+		<item operation="编辑会员" actionClass="net.shopxx.action.admin.MemberAction" actionMethod="update"/>  
+		<item operation="添加商品分类" actionClass="net.shopxx.action.admin.GoodsCategoryAction" actionMethod="save"/>  
+		<item operation="删除商品分类" actionClass="net.shopxx.action.admin.GoodsCategoryAction" actionMethod="delete"/>  
+		<item operation="编辑商品分类" actionClass="net.shopxx.action.admin.GoodsCategoryAction" actionMethod="update"/>  
+		<item operation="添加商品" actionClass="net.shopxx.action.admin.GoodsAction" actionMethod="save"/>  
+		<item operation="删除商品" actionClass="net.shopxx.action.admin.GoodsAction" actionMethod="delete"/>  
+		<item operation="编辑商品" actionClass="net.shopxx.action.admin.GoodsAction" actionMethod="update"/>  
+		<item operation="添加文章分类" actionClass="net.shopxx.action.admin.ArticleCategoryAction" actionMethod="save"/>  
+		<item operation="删除文章分类" actionClass="net.shopxx.action.admin.ArticleCategoryAction" actionMethod="delete"/>  
+		<item operation="编辑文章分类" actionClass="net.shopxx.action.admin.ArticleCategoryAction" actionMethod="update"/>  
+		<item operation="添加文章" actionClass="net.shopxx.action.admin.ArticleAction" actionMethod="save"/>  
+		<item operation="删除文章" actionClass="net.shopxx.action.admin.ArticleAction" actionMethod="delete"/>  
+		<item operation="编辑文章" actionClass="net.shopxx.action.admin.ArticleAction" actionMethod="update"/>  
+		<item operation="删除订单" actionClass="net.shopxx.action.admin.OrderAction" actionMethod="delete"/>  
+		<item operation="编辑订单" actionClass="net.shopxx.action.admin.OrderAction" actionMethod="update"/>  
+		<item operation="订单支付" actionClass="net.shopxx.action.admin.OrderAction" actionMethod="payment"/>  
+		<item operation="订单发货" actionClass="net.shopxx.action.admin.OrderAction" actionMethod="shipping"/>  
+		<item operation="订单退款" actionClass="net.shopxx.action.admin.OrderAction" actionMethod="refund"/>  
+		<item operation="订单退货" actionClass="net.shopxx.action.admin.OrderAction" actionMethod="reship"/>  
+		<item operation="订单完成" actionClass="net.shopxx.action.admin.OrderAction" actionMethod="completed"/>  
+		<item operation="订单作废" actionClass="net.shopxx.action.admin.OrderAction" actionMethod="invalid"/> 
+	</logConfig> 
+</shopxx>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE urlrewrite PUBLIC "-//tuckey.org//DTD UrlRewrite 3.0//EN" "http://tuckey.org/res/dtds/urlrewrite3.0.dtd">
+<urlrewrite>
+
+	<rule>
+		<note>文章分类</note>
+		<from>^/shop/article_list/(\w+).htm$</from>
+		<to type="forward">/shop/article!list.action?sign=$1</to>
+	</rule>
+	
+	<rule>
+		<note>商品分类</note>
+		<from>^/shop/goods_list/(\w+).htm$</from>
+		<to type="forward">/shop/goods!list.action?sign=$1</to>
+	</rule>
+	
+	<rule>
+		<note>商品评论</note>
+		<from>^/shop/comment_list/(\w+).htm$</from>
+		<to type="forward">/shop/comment!list.action?id=$1</to>
+	</rule>
+	
+	<rule>
+		<note>在线留言</note>
+		<from>^/shop/leave_message.htm$</from>
+		<to type="forward">/shop/leave_message!list.action</to>
+	</rule>
+
+</urlrewrite>

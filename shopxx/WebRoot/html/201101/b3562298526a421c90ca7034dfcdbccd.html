@@ -1,0 +1,973 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>富士 JZ305 - Powered By SHOP++</title>
+<meta name="Author" content="SHOP++ Team" />
+<meta name="Copyright" content="SHOP++" />
+
+
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link href="/shopxx/template/common/css/jquery.zoomimage.css" rel="stylesheet" type="text/css" />
+<link href="/shopxx/template/shop/css/base.css" rel="stylesheet" type="text/css" />
+<link href="/shopxx/template/shop/css/shop.css" rel="stylesheet" type="text/css" />
+<!--[if lte IE 6]>
+	<script type="text/javascript" src="/shopxx/template/common/js/belatedPNG.js"></script>
+	<script type="text/javascript">
+		// 解决IE6透明PNG图片BUG
+		DD_belatedPNG.fix(".belatedPNG");
+	</script>
+<![endif]-->
+</head>
+<body id="goodsContent" class="goodsContent">
+<div id="header" class="header belatedPNG">
+	<div class="headerTop belatedPNG">
+		<div class="headerTopContent">
+			<div class="headerLoginInfo">
+				您好<span id="headerLoginMemberUsername"></span>, 欢迎来到SHOP++商城!
+				<a href="javascript: void(0);" id="headerShowLoginWindow">登录</a>
+				<a href="/shopxx/shop/member_center!index.action" id="headerMemberCenter">会员中心</a>
+				<a href="javascript: void(0);" id="headerShowRegisterWindow">注册</a>
+				<a href="/shopxx/shop/member!logout.action" id="headerLogout">[退出]</a>
+			</div>
+			<div class="headerTopNav">
+						<a href="javascript: addFavorite('http://localhost','SHOP++商城')"
+							>收藏本站
+						</a>
+						|
+						<a href="/shopxx/shop/article_list/about_us.htm"
+							>关于我们
+						</a>
+						|
+						<a href="/shopxx/shop/article_list/help.htm"
+							>帮助中心
+						</a>
+						|
+						<a href="http://bbs.shopxx.net"
+							 target="_blank">SHOP++论坛
+						</a>
+						|
+						<a href="http://www.shopxx.net"
+							 target="_blank">SHOP++网站
+						</a>
+						
+			</div>
+		</div>
+	</div>
+	<div class="headerMiddle">
+		<div class="headerInfo">
+				7×24小时服务热线: <strong>400-8888888</strong>
+		</div>
+		<div class="headerLogo">
+			<a href="/shopxx/"><img class="belatedPNG" src="/shopxx/images/logo.jpg" alt="SHOP++商城" /></a>
+		</div>
+		<div class="headerSearch belatedPNG">
+			<form id="goodsSearchForm" action="/shopxx/shop/goods!search.action" method="post">
+				<div class="headerSearchText">
+					<input type="text" id="goodsSearchKeyword" name="pager.keyword" value="请输入关键词..." />
+				</div>
+				<input type="submit" class="headerSearchButton" value="" />
+				<div class="hotKeyword">
+					热门关键词: 
+						<a href="/shopxx/shop/goods!search.action?pager.keyword=%E8%8B%B9%E6%9E%9C">苹果</a>
+						<a href="/shopxx/shop/goods!search.action?pager.keyword=%E6%9D%BE%E4%B8%8B">松下</a>
+						<a href="/shopxx/shop/goods!search.action?pager.keyword=%E7%B4%A2%E5%B0%BC">索尼</a>
+						<a href="/shopxx/shop/goods!search.action?pager.keyword=%E4%B8%89%E6%98%9F">三星</a>
+						<a href="/shopxx/shop/goods!search.action?pager.keyword=%E8%AF%BA%E5%9F%BA%E4%BA%9A">诺基亚</a>
+						<a href="/shopxx/shop/goods!search.action?pager.keyword=%E6%B5%B7%E5%B0%94">海尔</a>
+						<a href="/shopxx/shop/goods!search.action?pager.keyword=%E6%83%A0%E6%99%AE">惠普</a>
+						<a href="/shopxx/shop/goods!search.action?pager.keyword=%E4%B8%9C%E8%8A%9D">东芝</a>
+						<a href="/shopxx/shop/goods!search.action?pager.keyword=LG">LG</a>
+						<a href="/shopxx/shop/goods!search.action?pager.keyword=%E8%81%94%E6%83%B3">联想</a>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="headerBottom">
+		<input type="button" class="cartItemListButton" value="" onclick="window.open('/shopxx/shop/cart_item!list.action')" />
+		<input type="button" class="orderButton" value="" onclick="window.open('/shopxx/shop/cart_item!list.action')" />
+		<div class="headerMiddleNav">
+			<div class="headerMiddleNavLeft belatedPNG"></div>
+			<ul class="headerMiddleNavContent belatedPNG">
+						<li>
+							<a href="/shopxx/"
+								>首页
+							</a>
+						</li>
+						<li>
+							<a href="/shopxx/shop/goods_list/office_computer.htm"
+								>电脑办公
+							</a>
+						</li>
+						<li>
+							<a href="/shopxx/shop/goods_list/mobile_digita.htm"
+								>手机数码
+							</a>
+						</li>
+						<li>
+							<a href="/shopxx/shop/goods_list/fashion_video.htm"
+								>时尚影音
+							</a>
+						</li>
+						<li>
+							<a href="/shopxx/shop/goods_list/home_appliances.htm"
+								>家用电器
+							</a>
+						</li>
+						<li>
+							<a href="/shopxx/shop/article_list/help.htm"
+								>帮助中心
+							</a>
+						</li>
+						<li>
+							<a href="/shopxx/shop/leave_message.htm"
+								>在线留言
+							</a>
+						</li>
+			</ul>
+			<div class="headerMiddleNavRight belatedPNG"></div>
+		</div>
+	</div>
+</div>	<div class="body">
+		<div class="bodyLeft">
+			<div class="goodsCategory">
+            	<div class="top">商品分类</div>
+            	<div class="middle">
+            		<ul id="goodsCategoryMenu" class="menu">
+	            				<li class="mainCategory">
+									<a href="/shopxx/shop/goods_list/office_computer.htm">电脑办公</a>
+								</li>
+										<li>
+											<a href="/shopxx/shop/goods_list/computer_circcity.htm">
+												<span class="icon">&nbsp;</span>电脑整机
+											</a>
+										</li>
+										<li>
+											<a href="/shopxx/shop/goods_list/computer_accessories.htm">
+												<span class="icon">&nbsp;</span>电脑配件
+											</a>
+										</li>
+										<li>
+											<a href="/shopxx/shop/goods_list/office_equipment.htm">
+												<span class="icon">&nbsp;</span>办公设备
+											</a>
+										</li>
+										<li>
+											<a href="/shopxx/shop/goods_list/office_fallen.htm">
+												<span class="icon">&nbsp;</span>办公耗材
+											</a>
+										</li>
+	            				<li class="mainCategory">
+									<a href="/shopxx/shop/goods_list/mobile_digita.htm">手机数码</a>
+								</li>
+										<li>
+											<a href="/shopxx/shop/goods_list/mobile_communication.htm">
+												<span class="icon">&nbsp;</span>手机通讯
+											</a>
+										</li>
+										<li>
+											<a href="/shopxx/shop/goods_list/mobile_phone_accessories.htm">
+												<span class="icon">&nbsp;</span>手机配件
+											</a>
+										</li>
+										<li>
+											<a href="/shopxx/shop/goods_list/digital_imaging.htm">
+												<span class="icon">&nbsp;</span>数码影像
+											</a>
+										</li>
+										<li>
+											<a href="/shopxx/shop/goods_list/digital_accessories.htm">
+												<span class="icon">&nbsp;</span>数码配件
+											</a>
+										</li>
+	            				<li class="mainCategory">
+									<a href="/shopxx/shop/goods_list/fashion_video.htm">时尚影音</a>
+								</li>
+										<li>
+											<a href="/shopxx/shop/goods_list/mp3mp4.htm">
+												<span class="icon">&nbsp;</span>MP3/MP4
+											</a>
+										</li>
+										<li>
+											<a href="/shopxx/shop/goods_list/apple_accessories.htm">
+												<span class="icon">&nbsp;</span>苹果配件
+											</a>
+										</li>
+										<li>
+											<a href="/shopxx/shop/goods_list/audio_instruments.htm">
+												<span class="icon">&nbsp;</span>音频乐器
+											</a>
+										</li>
+										<li>
+											<a href="/shopxx/shop/goods_list/electronic_dictionary.htm">
+												<span class="icon">&nbsp;</span>电子词典
+											</a>
+										</li>
+					</ul>
+            	</div>
+                <div class="bottom"></div>
+			</div>
+			<div class="blank"></div>
+			<div class="hotGoods">
+				<div class="top">热销排行</div>
+				<div class="middle">
+					<ul>
+					</ul>
+				</div>
+				<div class="bottom"></div>
+			</div>
+			<div class="blank"></div>
+			<div id="goodsHistory" class="goodsHistory">
+				<div class="top">浏览记录</div>
+				<div class="middle">
+					<ul id="goodsHistoryListDetail"></ul>
+				</div>
+				<div class="bottom"></div>
+			</div>
+		</div>
+		<div class="bodyRight">
+			<div class="listBar">
+				<div class="left"></div>
+				<div class="middle">
+					<div class="path">
+						<a href="/shopxx/" class="shop"><span class="icon">&nbsp;</span>首页</a> &gt;
+							<a href="/shopxx/shop/goods_list/mobile_digita.htm">手机数码</a> &gt;
+							<a href="/shopxx/shop/goods_list/digital_imaging.htm">数码影像</a> &gt;
+					</div>
+				</div>
+				<div class="right"></div>
+			</div>
+			<div class="blank"></div>
+			<div class="goodsTop">
+				<div class="goodsTopLeft">
+					<div class="goodsImage">
+		                		<a href="/shopxx/upload/image/201101/big/8dc06c85f78d44778fa7d974c481ec12.jpg" class="tabContent zoom">
+									<img src="/shopxx/upload/image/201101/small/8dc06c85f78d44778fa7d974c481ec12.jpg" alt="点击放大" />
+								</a>
+		                		<a href="/shopxx/upload/image/201101/big/4aea673bee5f4a80957e3e2f0ed81733.jpg" class="tabContent zoom nonFirst">
+									<img src="/shopxx/upload/image/201101/small/4aea673bee5f4a80957e3e2f0ed81733.jpg" alt="点击放大" />
+								</a>
+		                		<a href="/shopxx/upload/image/201101/big/2b485d2b089f45f6a4c8dd852ecf22c8.jpg" class="tabContent zoom nonFirst">
+									<img src="/shopxx/upload/image/201101/small/2b485d2b089f45f6a4c8dd852ecf22c8.jpg" alt="点击放大" />
+								</a>
+                	</div>
+					<div class="thumbnailGoodsImage">
+						<a class="prev browse" href="javascript: void(0);" hidefocus></a>
+						<div id="thumbnailGoodsImageScrollable" class="scrollable">
+							<ul id="goodsImageTab" class="items goodsImageTab">
+										<li><img src="/shopxx/upload/image/201101/thumbnail/8dc06c85f78d44778fa7d974c481ec12.jpg" alt="" /></li>
+										<li><img src="/shopxx/upload/image/201101/thumbnail/4aea673bee5f4a80957e3e2f0ed81733.jpg" alt="" /></li>
+										<li><img src="/shopxx/upload/image/201101/thumbnail/2b485d2b089f45f6a4c8dd852ecf22c8.jpg" alt="" /></li>
+							</ul>
+						</div>
+						<a class="next browse" href="javascript: void(0);" hidefocus></a>
+					</div>
+				</div>
+				<div class="goodsTopRight">
+					<h1 class="title">富士 JZ305</h1>
+					<ul class="goodsAttribute">
+						<li>商品编号: SN_52AB78E95B78</li>
+						<li>货品编号: <span id="productSn">SN_05AB0F1B9FB4</span></li>
+	                    		<li>有效像素: 1200-1599万</li>
+	                    		<li>液晶屏尺寸: 2.7英寸</li>
+	                    		<li>类型: 广角相机</li>
+					</ul>
+					<div class="blank"></div>
+					<div class="goodsPrice">
+						<div class="left"></div>
+						<div class="right">
+							<div class="top">
+								销 售 价:
+								<span id="price" class="price">￥1199.00元</span>
+							</div>
+							<div class="bottom">
+								市 场 价:
+									<span id="marketPrice" class="marketPrice">￥1438.80元</span>
+							</div>
+						</div>
+					</div>
+					<div class="blank"></div>
+					<table id="buyInfo" class="buyInfo">
+							<tr class="specificationTips">
+								<th id="tipsTitle">请选择:</th>
+								<td>
+									<div id="tipsContent" class="tipsContent">
+											颜色 
+									</div>
+									<div id="closeHighlight" class="closeHighlight" title="关闭"></div>
+								</td>
+							</tr>
+									<tr class="image">
+										<th>颜色:</th>
+										<td>
+											<ul>
+														<li class="0d1e9ee679374f9faa2ecab39fadf596" title="黑色" specificationValueId="0d1e9ee679374f9faa2ecab39fadf596">
+																<img src="/shopxx/upload/image/201101/98c845a2168e44619e6de24f93b37502.gif" alt="黑色" />
+															<span title="点击取消选择"></span>
+														</li>
+														<li class="13487a700fae4eec9d8247d794e85234" title="银色" specificationValueId="13487a700fae4eec9d8247d794e85234">
+																<img src="/shopxx/upload/image/201101/87b07a07f9bd40868a5a8e8197aff2ab.gif" alt="银色" />
+															<span title="点击取消选择"></span>
+														</li>
+											</ul>
+										</td>
+									</tr>
+						<tr>
+							<th>购买数量:</th>
+							<td>
+								<input type="text" id="quantity" value="1" />
+							</td>
+						</tr>
+						<tr>
+							<th>&nbsp;</th>
+							<td>
+									<input type="button" id="goodsButton" class="addCartItemButton" value="" hidefocus />
+								 <input type="button" id="addFavorite" class="addFavoriteButton" goodsId="40289181303478af0130355c6b690042" hidefocus />
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="blank"></div>
+			<div class="goodsBottom">
+				<ul id="goodsParameterTab" class="goodsParameterTab">
+					<li>
+						<a href="javascript: void(0);" class="current" hidefocus>商品介绍</a>
+					</li>
+					<li>
+						<a href="javascript: void(0);" name="goodsAttribute" hidefocus>商品参数</a>
+					</li>
+						<li>
+							<a href="javascript: void(0);" hidefocus>商品评论</a>
+						</li>
+				</ul>
+				<div class="tabContent goodsIntroduction">
+					<img alt="" src="http://demo.image.shopxx.net/201101/d4590e4d5f4545a88c3d1f0f811cf950.png" border="0" />
+				</div>
+				<div class="tabContent goodsAttribute">
+					<table class="goodsParameterTable">
+								<tr>
+									<th>
+										品牌
+									</th>
+									<td>
+										富士 FUJIFILM
+									</td>
+								</tr>
+								<tr>
+									<th>
+										系列
+									</th>
+									<td>
+										PF
+									</td>
+								</tr>
+								<tr>
+									<th>
+										型号
+									</th>
+									<td>
+										JZ305
+									</td>
+								</tr>
+								<tr>
+									<th>
+										颜色
+									</th>
+									<td>
+										黑色
+									</td>
+								</tr>
+								<tr>
+									<th>
+										类型
+									</th>
+									<td>
+										便携相机
+									</td>
+								</tr>
+								<tr>
+									<th>
+										屏幕液晶屏尺寸
+									</th>
+									<td>
+										2.7英寸
+									</td>
+								</tr>
+								<tr>
+									<th>
+										有效像素
+									</th>
+									<td>
+										1210万有效像素
+									</td>
+								</tr>
+								<tr>
+									<th>
+										光学变焦倍数
+									</th>
+									<td>
+										10倍
+									</td>
+								</tr>
+								<tr>
+									<th>
+										数码变焦倍数
+									</th>
+									<td>
+										约6.0倍
+									</td>
+								</tr>
+								<tr>
+									<th>
+										传感器类型
+									</th>
+									<td>
+										CCD
+									</td>
+								</tr>
+								<tr>
+									<th>
+										传感器尺寸
+									</th>
+									<td>
+										1/2.3英寸
+									</td>
+								</tr>
+								<tr>
+									<th>
+										最大分辨率
+									</th>
+									<td>
+										4320×3240
+									</td>
+								</tr>
+								<tr>
+									<th>
+										短片拍摄
+									</th>
+									<td>
+										支持
+									</td>
+								</tr>
+								<tr>
+									<th>
+										语言
+									</th>
+									<td>
+										简体中文/英文等多种语言
+									</td>
+								</tr>
+								<tr>
+									<th>
+										取景器类型
+									</th>
+									<td>
+										LED取景
+									</td>
+								</tr>
+								<tr>
+									<th>
+										镜头类型
+									</th>
+									<td>
+										伸缩式
+									</td>
+								</tr>
+								<tr>
+									<th>
+										焦距（相当于35mm）
+									</th>
+									<td>
+										28mm-280mm
+									</td>
+								</tr>
+								<tr>
+									<th>
+										普通对焦范围
+									</th>
+									<td>
+										广角：约45cm至无穷远,望远：约2m至无穷远
+									</td>
+								</tr>
+								<tr>
+									<th>
+										光圈范围
+									</th>
+									<td>
+										广角：F3.3 / F6.4，望远：F5.6 / F11.0
+									</td>
+								</tr>
+								<tr>
+									<th>
+										曝光模式
+									</th>
+									<td>
+										程序AE
+									</td>
+								</tr>
+								<tr>
+									<th>
+										曝光补偿
+									</th>
+									<td>
+										正负2.0EV，间隔为1/3EV
+									</td>
+								</tr>
+								<tr>
+									<th>
+										测光方式
+									</th>
+									<td>
+										256分割矩阵测光,中央重点测光,点测光
+									</td>
+								</tr>
+								<tr>
+									<th>
+										ISO感光度
+									</th>
+									<td>
+										自动/相当于ISO 100 / 200 / 400 / 800 / 1600 / 3200*（标准输出感光度）
+									</td>
+								</tr>
+								<tr>
+									<th>
+										白平衡模式
+									</th>
+									<td>
+										日光,阴天,白炽灯,荧光灯,闪光灯
+									</td>
+								</tr>
+								<tr>
+									<th>
+										防抖功能
+									</th>
+									<td>
+										CCD位移式光学防抖
+									</td>
+								</tr>
+								<tr>
+									<th>
+										连拍
+									</th>
+									<td>
+										0.7张/秒
+									</td>
+								</tr>
+								<tr>
+									<th>
+										自拍
+									</th>
+									<td>
+										约10秒/2秒延时
+									</td>
+								</tr>
+								<tr>
+									<th>
+										机身闪光灯
+									</th>
+									<td>
+										内置闪光灯
+									</td>
+								</tr>
+								<tr>
+									<th>
+										闪光模式
+									</th>
+									<td>
+										红眼修正关闭：自动、强制闪光、禁止闪光、慢同步; 红眼修正开启：自动减轻红眼、减轻红眼 + 强制闪光、禁止闪光、减轻红眼 + 慢同步
+									</td>
+								</tr>
+								<tr>
+									<th>
+										存储介质
+									</th>
+									<td>
+										SD 存储卡，SDHC 存储卡
+									</td>
+								</tr>
+								<tr>
+									<th>
+										机身内存
+									</th>
+									<td>
+										内存（约 40MB）
+									</td>
+								</tr>
+								<tr>
+									<th>
+										记录格式
+									</th>
+									<td>
+										照片格式：JPEG(Exif Ver2.3),视频格式：MOV(H.264)
+									</td>
+								</tr>
+								<tr>
+									<th>
+										电池续航时间
+									</th>
+									<td>
+										可拍摄照片330张(CIPA标准)
+									</td>
+								</tr>
+					</table>
+				</div>
+					<div id="comment" class="tabContent comment">
+						<form id="commentForm" name="commentForm" method="post">
+							<input type="hidden" name="comment.goods.id" value="40289181303478af0130355c6b690042" />
+							<input type="hidden" id="forCommentId" name="forCommentId" />
+							<table class="sendTable">
+								<tr class="title">
+									<td width="100">
+										<span id="sendTitle">发表评论</span>
+									</td>
+									<td>
+										<a href="javascript: void(0);" id="sendComment" class="sendComment">切换到发表新评论&gt;&gt;</a>
+									</td>
+								</tr>
+								<tr>
+									<th>
+										评论内容: 
+									</th>
+									<td>
+										<textarea id="commentContent" name="comment.content" class="formTextarea"></textarea>
+									</td>
+								</tr>
+								<tr>
+									<th>
+										联系方式: 
+									</th>
+									<td>
+										<input type="text" name="comment.contact" class="formText" />
+									</td>
+								</tr>
+									<tr>
+					                	<th>
+					                		验证码: 
+					                	</th>
+					                    <td>
+					                    	<input type="text" id="commentCaptcha" name="j_captcha" class="formText captcha" />
+					                    	<img id="commentCaptchaImage" class="captchaImage" src="/shopxx/captcha.jpeg" alt="换一张" />
+					                    </td>
+					                </tr>
+								<tr>
+									<th>
+										&nbsp;
+									</th>
+									<td>
+										<input type="submit" class="formButton" value="提交评论" />
+									</td>
+								</tr>
+							</table>
+						</form>
+					</div>
+			</div>
+		</div>
+		<div class="blank"></div>
+<div id="friendLink" class="friendLink">
+	<div class="pictureFriendLink">
+		<div class="left"></div>
+		<div class="middle">
+			<ul>
+										<li>
+							<a href="http://www.shopxx.net" title="SHOP++官方网站" target="_blank">
+								<img src="/shopxx/upload/image/201101/1a1b183f3c124b2dae0e9d83818628d9.png">
+							</a>
+						</li>
+						<li>
+							<a href="https://www.tenpay.com" title="财付通" target="_blank">
+								<img src="/shopxx/upload/image/201101/64f5f4313c834b1caa7181deda4075c1.gif">
+							</a>
+						</li>
+						<li>
+							<a href="https://cmpay.10086.cn" title="手机支付" target="_blank">
+								<img src="/shopxx/upload/image/201101/a52ee3e2af9c46fda95127a4029bdaa0.gif">
+							</a>
+						</li>
+						<li>
+							<a href="http://www.icbc.com.cn" title="中国工商银行" target="_blank">
+								<img src="/shopxx/upload/image/201101/3fbb0969f70d4c0e8a47cf9684a6e821.gif">
+							</a>
+						</li>
+						<li>
+							<a href="https://www.alipay.com" title="支付宝" target="_blank">
+								<img src="/shopxx/upload/image/201101/ea773d0bf3b34c3faa9d7abb5bb8f16a.png">
+							</a>
+						</li>
+						<li>
+							<a href="http://bbs.shopxx.net" title="SHOP++官方论坛" target="_blank">
+								<img src="/shopxx/upload/image/201101/216a503ffc1c48fa97ab5a9430ec4d75.png">
+							</a>
+						</li>
+						<li>
+							<a href="http://www.boc.cn" title="中国银行" target="_blank">
+								<img src="/shopxx/upload/image/201101/3e2a5e38765342a3b9aa485cc118897b.gif">
+							</a>
+						</li>
+						<li>
+							<a href="https://www.99bill.com" title="快钱" target="_blank">
+								<img src="/shopxx/upload/image/201101/1cd7d017e6a843f081363ece98eef31f.gif">
+							</a>
+						</li>
+			</ul>
+		</div>
+		<div class="right"></div>
+	</div>
+	<div class="textFriendLink">
+		<div class="left"></div>
+		<div class="middle">
+			<ul>
+						<li>
+							<a href="http://www.shopxx.net" title="SHOP++官方网站" target="_blank">SHOP++官方网站</a>
+						</li>
+						<li>
+							<a href="http://bbs.shopxx.net" title="SHOP++官方论坛" target="_blank">SHOP++官方论坛</a>
+						</li>
+						<li>
+							<a href="http://www.pbc.gov.cn" title="中国人民银行" target="_blank">中国人民银行</a>
+						</li>
+						<li>
+							<a href="http://www.ccb.com" title="中国建设银行" target="_blank">中国建设银行</a>
+						</li>
+						<li>
+							<a href="http://www.icbc.com.cn" title="中国工商银行" target="_blank">中国工商银行</a>
+						</li>
+						<li>
+							<a href="https://www.tenpay.com" title="财付通" target="_blank">财付通</a>
+						</li>
+						<li>
+							<a href="https://cmpay.10086.cn" title="移动手机支付" target="_blank">移动手机支付</a>
+						</li>
+						<li>
+							<a href="https://www.99bill.com" title="快钱" target="_blank">快钱</a>
+						</li>
+						<li>
+							<a href="https://www.alipay.com" title="支付宝" target="_blank">支付宝</a>
+						</li>
+						<li>
+							<a href="http://www.ct10000.com" title="中国电信" target="_blank">中国电信</a>
+						</li>
+			</ul>
+		</div>
+		<div class="right"></div>
+	</div>
+</div>	</div>
+	<div class="blank"></div>
+<div class="footer">
+	<div class="bottomNavigation">
+							<dl>
+					<dd>
+						<a href="/shopxx/shop/article_list/questions.htm">常见问题</a>
+					</dd>
+					<dd>
+						<a href="/shopxx/shop/article_list/privacy.htm">隐私申明</a>
+					</dd>
+					<dd>
+						<a href="/shopxx/shop/article_list/terms.htm">交易条款</a>
+					</dd>
+					</dl>
+					<dl>
+					<dd>
+						<a href="/shopxx/shop/article_list/newbie.htm">新手上路</a>
+					</dd>
+					<dd>
+						<a href="/shopxx/shop/article_list/payment.htm">支付方式</a>
+					</dd>
+					<dd>
+						<a href="/shopxx/shop/article_list/shipping_method.htm">配送方式</a>
+					</dd>
+					</dl>
+					<dl>
+					<dd>
+						<a href="/shopxx/shop/article_list/service.htm">售后服务</a>
+					</dd>
+					<dd>
+						<a href="/shopxx/shop/article_list/service_guarantee.htm">服务保证</a>
+					</dd>
+					<dd>
+						<a href="/shopxx/shop/article_list/website_system.htm">网站制度</a>
+					</dd>
+					</dl>
+					<dl>
+					<dd>
+						<a href="/shopxx/shop/article_list/about_us.htm">关于我们</a>
+					</dd>
+					<dd>
+						<a href="/shopxx/shop/article_list/help.htm">帮助中心</a>
+					</dd>
+					<dd>
+						<a href="/shopxx/shop/article_list/shopping_guide.htm">购物指南</a>
+					</dd>
+					</dl>
+	</div>
+	<div class="footerInfo">
+		<ul>
+			<li><a href="#">关于商城</a>|</li>
+			<li><a href="#">帮助中心</a>|</li>
+			<li><a href="#">网站地图</a>|</li>
+			<li><a href="#">诚聘英才</a>|</li>
+			<li><a href="#">联系我们</a>|</li>
+			<li><a href="#">版权说明</a></li>
+		</ul>
+		<p>Copyright &copy; 2011 SHOP++. All rights reserved. 长沙鼎诚软件有限公司</p>
+			<p>Powered by <a class="systemName" href="http://www.shopxx.net" target="_blank">SHOP<span>++</span> V2.0</a></p>
+	</div>
+</div>	<script type="text/javascript" src="/shopxx/template/common/js/jquery.js"></script>
+	<script type="text/javascript" src="/shopxx/template/common/js/jquery.tools.js"></script>
+	<script type="text/javascript" src="/shopxx/template/common/js/jquery.zoomimage.js"></script>
+	<script type="text/javascript" src="/shopxx/template/shop/js/base.js"></script>
+	<script type="text/javascript" src="/shopxx/template/shop/js/shop.js"></script>
+	<script type="text/javascript">
+	$().ready( function() {
+	
+		$productSn = $("#productSn");
+		$price = $("#price");
+		$marketPrice = $("#marketPrice");
+		$buyInfo = $("#buyInfo");
+		$tipsTitle = $("#tipsTitle");
+		$tipsContent = $("#tipsContent");
+		$closeHighlight = $("#closeHighlight");
+		$specificationValue = $("#buyInfo li");
+		$quantity = $("#quantity");
+		$goodsButton = $("#goodsButton");
+	
+		// 添加商品浏览记录
+		$.addGoodsHistory("富士 JZ305", "/shopxx/html/201101/b3562298526a421c90ca7034dfcdbccd.html");
+		
+			var productDatas = {};
+					productDatas['40289181303478af0130355c6c720044'] = {
+						productSn: "SN_9DF83E14C9B0",
+						price: "￥1199.00元",
+						marketPrice: "￥1438.80元",
+						isOutOfStock: false
+					};
+					productDatas['40289181303478af0130355c6bb70043'] = {
+						productSn: "SN_05AB0F1B9FB4",
+						price: "￥1199.00元",
+						marketPrice: "￥1438.80元",
+						isOutOfStock: false
+					};
+			
+			var specificationValueDatas = {};
+					specificationValueDatas['40289181303478af0130355c6c720044'] = new Array("13487a700fae4eec9d8247d794e85234");
+					specificationValueDatas['40289181303478af0130355c6bb70043'] = new Array("0d1e9ee679374f9faa2ecab39fadf596");
+			
+			var specificationValueSelecteds = new Array();
+			var selectedProductId = null;
+			
+			$specificationValue.click(function () {
+				var $this = $(this);
+				if ($this.hasClass("notAllowed")) {
+					return false;
+				}
+				
+				if ($this.hasClass("selected")) {
+					$this.removeClass("selected");
+				} else {
+					$this.addClass("selected");
+				}
+				$this.siblings("li").removeClass("selected");
+				$specificationValue.addClass("notAllowed");
+				
+				var $specificationValueSelected = $("#buyInfo li.selected");
+				if ($specificationValueSelected.length == 1) {
+					$specificationValueSelected.siblings("li").removeClass("notAllowed");
+				}
+				
+				var specificationValueSelecteds = new Array();
+				selectedProductId = null;
+				var tipsContentText = "";
+				$specificationValueSelected.each(function(i) {
+					var $this = $(this);
+					tipsContentText += $this.attr("title") + " ";
+					specificationValueSelecteds.push($this.attr("specificationValueId"));
+				});
+				if (tipsContentText != "") {
+					$tipsTitle.text("已选择: ");
+					$tipsContent.text(tipsContentText);
+				} else {
+					$tipsTitle.text("请选择: ");
+					$tipsContent.text("颜色 ");
+				}
+				$.each(specificationValueDatas, function(i) {
+					if (arrayContains(specificationValueDatas[i], specificationValueSelecteds)) {
+						for (var j in specificationValueDatas[i]) {
+							$("." + specificationValueDatas[i][j]).removeClass("notAllowed");
+						}
+					}
+					if (arrayEqual(specificationValueDatas[i], specificationValueSelecteds)) {
+						$productSn = $productSn.text(productDatas[i].productSn);
+						$price = $price.text(productDatas[i].price);
+						$marketPrice = $marketPrice.text(productDatas[i].marketPrice);
+						selectedProductId = i;
+						$buyInfo.removeClass("highlight");
+						if (productDatas[i].isOutOfStock) {
+							$goodsButton.addClass("goodsNotifyButton");
+							$goodsButton.removeClass("addCartItemButton");
+						} else {
+							$goodsButton.addClass("addCartItemButton");
+							$goodsButton.removeClass("goodsNotifyButton");
+						}
+					}
+				});
+			});
+			
+			// 添加商品至购物车/到货通知
+			$goodsButton.click(function () {
+				var $this = $(this);
+				if (selectedProductId != null) {
+					if ($this.hasClass("addCartItemButton")) {
+						$.addCartItem(selectedProductId, $quantity.val());
+					} else {
+						location.href = '/shopxx/shop/goods_notify!add.action?product.id=' + selectedProductId;
+					}
+				} else {
+					$buyInfo.addClass("highlight");
+					$tipsTitle.text('系统提示:');
+					$tipsContent.text('请选择商品信息!');
+				}
+			});
+			
+			// 关闭购买信息提示
+			$closeHighlight.click(function () {
+				$buyInfo.removeClass("highlight");
+				$tipsTitle.html("请选择: ");
+				$tipsContent.html("颜色 ");
+			});
+			
+			// 判断数组是否包含另一个数组中所有元素
+			function arrayContains(array1, array2) {
+				if(!(array1 instanceof Array) || !(array2 instanceof Array)) {
+					return false;
+				}
+				if(array1.length < array2.length) {
+					return false;
+				}
+				for (var i in array2) {
+					if ($.inArray(array2[i], array1) == -1) {
+						return false;
+					}
+				}
+				return true;
+			}
+			
+			// 判断两个数组中的所有元素是否相同
+			function arrayEqual(array1, array2) {
+				if(!(array1 instanceof Array) || !(array2 instanceof Array)) {
+					return false;
+				}
+				if(array1.length != array2.length) {
+					return false;
+				}
+				for (var i in array2) {
+					if ($.inArray(array2[i], array1) == -1) {
+						return false;
+					}
+				}
+				return true;
+			}
+	
+	})
+	</script>
+</body>
+</html>

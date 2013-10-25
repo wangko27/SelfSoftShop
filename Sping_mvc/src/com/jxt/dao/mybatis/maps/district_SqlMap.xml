@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="district_name}">
+
+	<typeAlias alias="district" type="com.hf.jxt.domain.District" />
+
+	<cacheModel id="oneDayCache" type="OSCACHE">
+		<flushInterval hours="24" />
+		<flushOnExecute statement="insertDistrict" />
+		<flushOnExecute statement="updateDistrict" />
+		<flushOnExecute statement="deleteDistrict" />
+	</cacheModel>
+
+	<resultMap id="districtResultForList" class="district">
+		<result column="id" property="id" jdbcType="INTEGER" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="city_id" property="city_id" jdbcType="INTEGER" />
+	</resultMap>
+
+	<resultMap id="districtResult" class="district" extends="districtResultForList">
+	</resultMap>
+
+	<sql id="sf-district">
+		<isNotEmpty prepend=" and " property="id">id = #id:INTEGER#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="name">name = #name:VARCHAR#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="city_id">city_id = #city_id:INTEGER#</isNotEmpty>
+	</sql>
+
+	<select id="selectDistrict" resultMap="districtResult" parameterClass="district" cacheModel="oneDayCache">
+		select *district.table_name} where 1 = 1
+		<include refid="sf-district" />
+	</select>
+
+	<select id="selectDistrictList" resultMap="districtResultForList" parameterClass="district" cacheModel="oneDayCache">
+		<isNotEmpty property="row.count">
+			<![CDATA[ select * from ( ]]>
+		</isNotEmpty>
+		sedistrict{table.table_name} where 1 = 1
+		<include refid="sf-district" />
+		<!-- order by ID asc -->
+		<isNotEmpty property="row.count">
+			<![CDATA[ ) where rownum <= #row.count# ]]>
+		</isNotEmpty>
+	</select>
+
+	<select id="selectDistrictCount" resultClass="long" parameterClass="district" cacheModel="oneDayCache">
+		seldistrictfrom district where 1 = 1
+		<include refid="sf-district" />
+	</select>
+
+	<select id="selectDistrictPaginatedList" resultMap="districtResult" parameterClass="district" cacheModel="oneDayCache">
+		<![CDATA[ select * from ( select t_.*, rownum rn_ fromdistrictect * from district where 1 = 1
+		<include refid="sf-district" />
+		<!-- order by ID asc -->
+		<![CDATA[ ) t_ where rownum <= (#row.first# + #row.count#)) where rn_ >= (#row.first# + 1) ]]>
+	</select>
+
+	<insert id="insertDistrict" parameterClass="district">
+		<selectKey resultClass="long" keyProperty="id">select seq_xxx.nextval as id from dual </selectKey>
+		<![CDATA[insert into district (]]>
+		<dynamic prepend=" ">
+			<isNotNull prepend="," property="id">id</isNotNull>	
+			<isNotNull prepend="," property="name">name</isNotNull>	
+			<isNotNull prepend="," property="city_id">city_id</isNotNull>	
+		</dynamic>
+		<![CDATA[) values (]]>
+		<dynamic prepend=" ">
+			<isNotNull prepend="," property="id">#id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="name">#name:VARCHAR#</isNotNull>
+			<isNotNull prepend="," property="city_id">#city_id:INTEGER#</isNotNull>
+		</dynamic>
+		<![CDATA[)]]>
+	</insert>
+
+	<update id="updateDistrict" parameterClass="District">
+		update district
+		<dynamic prepend="set">
+			<isNotNull prepend="," property="id">id = #id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="name">name = #name:VARCHAR#</isNotNull>
+			<isNotNull prepend="," property="city_id">city_id = #city_id:INTEGER#</isNotNull>
+		</dynamic>
+		where
+		<isNotEmpty prepend=" " property="id">ID = #id#</isNotEmpty>
+		<isEmpty prepend=" " property="id">
+			<isNotEmpty prepend=" " property="map.pks">
+				ID in
+				<iterate close=")" open="(" conjunction="," property="map.pks">#map.pks[]#</iterate>
+			</isNotEmpty>
+		</isEmpty>
+	</update>
+
+	<delete id="deleteDistrict" parameterClass="District">
+		delete from district where
+		<isNotEmpty prepend=" " property="id">ID = #id#</isNotEmpty>
+		<isEmpty prepend=" " property="id">
+			<isNotEmpty prepend=" " property="map.pks">
+				ID in
+				<iterate close=")" open="(" conjunction="," property="map.pks">#map.pks[]#</iterate>
+			</isNotEmpty>
+		</isEmpty>
+	</delete>
+
+</sqlMap>

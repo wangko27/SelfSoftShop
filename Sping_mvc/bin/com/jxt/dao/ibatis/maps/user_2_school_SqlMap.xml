@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="user_2_school_name}">
+
+	<typeAlias alias="user2School" type="com.jxt.domain.User2School" />
+
+	<cacheModel id="oneDayCache" type="OSCACHE">
+		<flushInterval hours="24" />
+		<flushOnExecute statement="insertUser2School" />
+		<flushOnExecute statement="updateUser2School" />
+		<flushOnExecute statement="deleteUser2School" />
+	</cacheModel>
+
+	<resultMap id="user2SchoolResultForList" class="user2School">
+		<result column="id" property="id" jdbcType="INTEGER" />
+		<result column="user_id" property="user_id" jdbcType="INTEGER" />
+		<result column="school_id" property="school_id" jdbcType="INTEGER" />
+		<result column="status" property="status" jdbcType="INTEGER" />
+	</resultMap>
+
+	<resultMap id="user2SchoolResult" class="user2School" extends="user2SchoolResultForList">
+	</resultMap>
+
+	<sql id="sf-user2School">
+		<isNotEmpty prepend=" and " property="id">id = #id:INTEGER#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="user_id">user_id = #user_id:INTEGER#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="school_id">school_id = #school_id:INTEGER#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="status">status = #status:INTEGER#</isNotEmpty>
+	</sql>
+
+	<select id="selectUser2School" resultMap="user2SchoolResult" parameterClass="user2School" cacheModel="oneDayCache">
+		select *user_2_school.table_name} where 1 = 1
+		<include refid="sf-user2School" />
+	</select>
+
+	<select id="selectUser2SchoolList" resultMap="user2SchoolResultForList" parameterClass="user2School" cacheModel="oneDayCache">
+		<isNotEmpty property="row.count">
+			<![CDATA[ select * from ( ]]>
+		</isNotEmpty>
+		seuser_2_school{table.table_name} where 1 = 1
+		<include refid="sf-user2School" />
+		<!-- order by ID asc -->
+		<isNotEmpty property="row.count">
+			<![CDATA[ ) where rownum <= #row.count# ]]>
+		</isNotEmpty>
+	</select>
+
+	<select id="selectUser2SchoolCount" resultClass="long" parameterClass="user2School" cacheModel="oneDayCache">
+		seluser_2_schoolfrom user_2_school where 1 = 1
+		<include refid="sf-user2School" />
+	</select>
+
+	<select id="selectUser2SchoolPaginatedList" resultMap="user2SchoolResult" parameterClass="user2School" cacheModel="oneDayCache">
+		<![CDATA[ select * from ( select t_.*, rownum rn_ fromuser_2_schoolect * from user_2_school where 1 = 1
+		<include refid="sf-user2School" />
+		<!-- order by ID asc -->
+		<![CDATA[ ) t_ where rownum <= (#row.first# + #row.count#)) where rn_ >= (#row.first# + 1) ]]>
+	</select>
+
+	<insert id="insertUser2School" parameterClass="user2School">
+		<selectKey resultClass="long" keyProperty="id">select seq_xxx.nextval as id from dual </selectKey>
+		<![CDATA[insert into user_2_school (]]>
+		<dynamic prepend=" ">
+			<isNotNull prepend="," property="id">id</isNotNull>	
+			<isNotNull prepend="," property="user_id">user_id</isNotNull>	
+			<isNotNull prepend="," property="school_id">school_id</isNotNull>	
+			<isNotNull prepend="," property="status">status</isNotNull>	
+		</dynamic>
+		<![CDATA[) values (]]>
+		<dynamic prepend=" ">
+			<isNotNull prepend="," property="id">#id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="user_id">#user_id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="school_id">#school_id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="status">#status:INTEGER#</isNotNull>
+		</dynamic>
+		<![CDATA[)]]>
+	</insert>
+
+	<update id="updateUser2School" parameterClass="User2School">
+		update user_2_school
+		<dynamic prepend="set">
+			<isNotNull prepend="," property="id">id = #id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="user_id">user_id = #user_id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="school_id">school_id = #school_id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="status">status = #status:INTEGER#</isNotNull>
+		</dynamic>
+		where
+		<isNotEmpty prepend=" " property="id">ID = #id#</isNotEmpty>
+		<isEmpty prepend=" " property="id">
+			<isNotEmpty prepend=" " property="map.pks">
+				ID in
+				<iterate close=")" open="(" conjunction="," property="map.pks">#map.pks[]#</iterate>
+			</isNotEmpty>
+		</isEmpty>
+	</update>
+
+	<delete id="deleteUser2School" parameterClass="User2School">
+		delete from user_2_school where
+		<isNotEmpty prepend=" " property="id">ID = #id#</isNotEmpty>
+		<isEmpty prepend=" " property="id">
+			<isNotEmpty prepend=" " property="map.pks">
+				ID in
+				<iterate close=")" open="(" conjunction="," property="map.pks">#map.pks[]#</iterate>
+			</isNotEmpty>
+		</isEmpty>
+	</delete>
+
+</sqlMap>

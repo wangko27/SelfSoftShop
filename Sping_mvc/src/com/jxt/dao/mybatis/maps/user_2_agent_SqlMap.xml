@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="user_2_agent_name}">
+
+	<typeAlias alias="user2Agent" type="com.hf.jxt.domain.User2Agent" />
+
+	<cacheModel id="oneDayCache" type="OSCACHE">
+		<flushInterval hours="24" />
+		<flushOnExecute statement="insertUser2Agent" />
+		<flushOnExecute statement="updateUser2Agent" />
+		<flushOnExecute statement="deleteUser2Agent" />
+	</cacheModel>
+
+	<resultMap id="user2AgentResultForList" class="user2Agent">
+		<result column="id" property="id" jdbcType="INTEGER" />
+		<result column="user_id" property="user_id" jdbcType="INTEGER" />
+		<result column="agent_id" property="agent_id" jdbcType="INTEGER" />
+		<result column="status" property="status" jdbcType="INTEGER" />
+	</resultMap>
+
+	<resultMap id="user2AgentResult" class="user2Agent" extends="user2AgentResultForList">
+	</resultMap>
+
+	<sql id="sf-user2Agent">
+		<isNotEmpty prepend=" and " property="id">id = #id:INTEGER#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="user_id">user_id = #user_id:INTEGER#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="agent_id">agent_id = #agent_id:INTEGER#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="status">status = #status:INTEGER#</isNotEmpty>
+	</sql>
+
+	<select id="selectUser2Agent" resultMap="user2AgentResult" parameterClass="user2Agent" cacheModel="oneDayCache">
+		select *user_2_agent.table_name} where 1 = 1
+		<include refid="sf-user2Agent" />
+	</select>
+
+	<select id="selectUser2AgentList" resultMap="user2AgentResultForList" parameterClass="user2Agent" cacheModel="oneDayCache">
+		<isNotEmpty property="row.count">
+			<![CDATA[ select * from ( ]]>
+		</isNotEmpty>
+		seuser_2_agent{table.table_name} where 1 = 1
+		<include refid="sf-user2Agent" />
+		<!-- order by ID asc -->
+		<isNotEmpty property="row.count">
+			<![CDATA[ ) where rownum <= #row.count# ]]>
+		</isNotEmpty>
+	</select>
+
+	<select id="selectUser2AgentCount" resultClass="long" parameterClass="user2Agent" cacheModel="oneDayCache">
+		seluser_2_agentfrom user_2_agent where 1 = 1
+		<include refid="sf-user2Agent" />
+	</select>
+
+	<select id="selectUser2AgentPaginatedList" resultMap="user2AgentResult" parameterClass="user2Agent" cacheModel="oneDayCache">
+		<![CDATA[ select * from ( select t_.*, rownum rn_ fromuser_2_agentect * from user_2_agent where 1 = 1
+		<include refid="sf-user2Agent" />
+		<!-- order by ID asc -->
+		<![CDATA[ ) t_ where rownum <= (#row.first# + #row.count#)) where rn_ >= (#row.first# + 1) ]]>
+	</select>
+
+	<insert id="insertUser2Agent" parameterClass="user2Agent">
+		<selectKey resultClass="long" keyProperty="id">select seq_xxx.nextval as id from dual </selectKey>
+		<![CDATA[insert into user_2_agent (]]>
+		<dynamic prepend=" ">
+			<isNotNull prepend="," property="id">id</isNotNull>	
+			<isNotNull prepend="," property="user_id">user_id</isNotNull>	
+			<isNotNull prepend="," property="agent_id">agent_id</isNotNull>	
+			<isNotNull prepend="," property="status">status</isNotNull>	
+		</dynamic>
+		<![CDATA[) values (]]>
+		<dynamic prepend=" ">
+			<isNotNull prepend="," property="id">#id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="user_id">#user_id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="agent_id">#agent_id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="status">#status:INTEGER#</isNotNull>
+		</dynamic>
+		<![CDATA[)]]>
+	</insert>
+
+	<update id="updateUser2Agent" parameterClass="User2Agent">
+		update user_2_agent
+		<dynamic prepend="set">
+			<isNotNull prepend="," property="id">id = #id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="user_id">user_id = #user_id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="agent_id">agent_id = #agent_id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="status">status = #status:INTEGER#</isNotNull>
+		</dynamic>
+		where
+		<isNotEmpty prepend=" " property="id">ID = #id#</isNotEmpty>
+		<isEmpty prepend=" " property="id">
+			<isNotEmpty prepend=" " property="map.pks">
+				ID in
+				<iterate close=")" open="(" conjunction="," property="map.pks">#map.pks[]#</iterate>
+			</isNotEmpty>
+		</isEmpty>
+	</update>
+
+	<delete id="deleteUser2Agent" parameterClass="User2Agent">
+		delete from user_2_agent where
+		<isNotEmpty prepend=" " property="id">ID = #id#</isNotEmpty>
+		<isEmpty prepend=" " property="id">
+			<isNotEmpty prepend=" " property="map.pks">
+				ID in
+				<iterate close=")" open="(" conjunction="," property="map.pks">#map.pks[]#</iterate>
+			</isNotEmpty>
+		</isEmpty>
+	</delete>
+
+</sqlMap>

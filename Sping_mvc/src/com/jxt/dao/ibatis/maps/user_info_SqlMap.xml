@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="user_info_name}">
+
+	<typeAlias alias="userInfo" type="com.jxt.domain.UserInfo" />
+
+
+	<resultMap id="userInfoResultForList" class="userInfo">
+		<result column="id" property="id" jdbcType="INTEGER" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="password" property="password" jdbcType="VARCHAR" />
+		<result column="phone_num" property="phone_num" jdbcType="CHAR" />
+		<result column="phone_type" property="phone_type" jdbcType="INTEGER" />
+		<result column="charge_phone_num" property="charge_phone_num" jdbcType="CHAR" />
+		<result column="charge_phone_type" property="charge_phone_type" jdbcType="INTEGER" />
+		<result column="status" property="status" jdbcType="INTEGER" />
+		<result column="sms_flag" property="sms_flag" jdbcType="INTEGER" />
+	</resultMap>
+
+	<resultMap id="userInfoResult" class="userInfo" extends="userInfoResultForList">
+	</resultMap>
+
+	 
+	<sql id="sf-userInfo">
+		<isNotEmpty prepend=" and " property="id">id = #id:INTEGER#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="name">name = #name:VARCHAR#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="password">password = #password:VARCHAR#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="phone_num">phone_num = #phone_num:CHAR#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="phone_type">phone_type = #phone_type:INTEGER#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="charge_phone_num">charge_phone_num = #charge_phone_num:CHAR#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="charge_phone_type">charge_phone_type = #charge_phone_type:INTEGER#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="status">status = #status:INTEGER#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="sms_flag">sms_flag = #sms_flag:INTEGER#</isNotEmpty>
+	</sql>
+   
+   
+	<select id="selectEntity" resultMap="userInfoResult" parameterClass="userInfo" >
+		select * user_info  where 1 = 1
+		<include refid="sf-userInfo" />
+	</select>
+	<cacheModel id="oneDayCache" type="OSCACHE">
+		<flushInterval hours="24" />
+		<flushOnExecute statement="insertUserInfo" />
+		<flushOnExecute statement="updateUserInfo" />
+		<flushOnExecute statement="deleteUserInfo" />
+	</cacheModel>
+
+	<resultMap id="userInfoResultForList" class="userInfo">
+		<result column="id" property="id" jdbcType="INTEGER" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="password" property="password" jdbcType="VARCHAR" />
+		<result column="phone_num" property="phone_num" jdbcType="CHAR" />
+		<result column="phone_type" property="phone_type" jdbcType="INTEGER" />
+		<result column="charge_phone_num" property="charge_phone_num" jdbcType="CHAR" />
+		<result column="charge_phone_type" property="charge_phone_type" jdbcType="INTEGER" />
+		<result column="status" property="status" jdbcType="INTEGER" />
+		<result column="sms_flag" property="sms_flag" jdbcType="INTEGER" />
+	</resultMap>
+
+	<resultMap id="userInfoResult" class="userInfo" extends="userInfoResultForList">
+	</resultMap>
+	
+	<!--  
+	<sql id="sf-userInfo">
+		<isNotEmpty prepend=" and " property="id">id = #id:INTEGER#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="name">name = #name:VARCHAR#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="password">password = #password:VARCHAR#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="phone_num">phone_num = #phone_num:CHAR#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="phone_type">phone_type = #phone_type:INTEGER#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="charge_phone_num">charge_phone_num = #charge_phone_num:CHAR#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="charge_phone_type">charge_phone_type = #charge_phone_type:INTEGER#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="status">status = #status:INTEGER#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="sms_flag">sms_flag = #sms_flag:INTEGER#</isNotEmpty>
+	</sql>
+    -->
+    
+	<select id="selectUserInfo" resultMap="userInfoResult" parameterClass="userInfo" cacheModel="oneDayCache">
+		select * from user_info  where 1 = 1
+		<include refid="sf-userInfo" />
+	</select>
+
+	<select id="selectUserInfoList" resultMap="userInfoResultForList" parameterClass="userInfo" cacheModel="oneDayCache">
+		<isNotEmpty property="row.count">
+			<![CDATA[ select * from ( ]]>
+		</isNotEmpty>
+		seuser_info{table.table_name} where 1 = 1
+		<include refid="sf-userInfo" />
+		<!-- order by ID asc -->
+		<isNotEmpty property="row.count">
+			<![CDATA[ ) where rownum <= #row.count# ]]>
+		</isNotEmpty>
+	</select>
+
+	<select id="selectUserInfoCount" resultClass="long" parameterClass="userInfo" cacheModel="oneDayCache">
+		select count(*) user_info where 1 = 1
+		<include refid="sf-userInfo" />
+	</select>
+
+	<select id="selectUserInfoPaginatedList" resultMap="userInfoResult" parameterClass="userInfo" cacheModel="oneDayCache">
+		<![CDATA[ select * from ( select t_.*, rownum rn_ fromuser_infoect * from user_info where 1 = 1
+		<include refid="sf-userInfo" />
+		<!-- order by ID asc -->
+		<![CDATA[ ) t_ where rownum <= (#row.first# + #row.count#)) where rn_ >= (#row.first# + 1) ]]>
+	</select>
+
+	<insert id="insertUserInfo" parameterClass="userInfo">
+		<selectKey resultClass="long" keyProperty="id">select seq_xxx.nextval as id from dual </selectKey>
+		<![CDATA[insert into user_info (]]>
+		<dynamic prepend=" ">
+			<isNotNull prepend="," property="id">id</isNotNull>	
+			<isNotNull prepend="," property="name">name</isNotNull>	
+			<isNotNull prepend="," property="password">password</isNotNull>	
+			<isNotNull prepend="," property="phone_num">phone_num</isNotNull>	
+			<isNotNull prepend="," property="phone_type">phone_type</isNotNull>	
+			<isNotNull prepend="," property="charge_phone_num">charge_phone_num</isNotNull>	
+			<isNotNull prepend="," property="charge_phone_type">charge_phone_type</isNotNull>	
+			<isNotNull prepend="," property="status">status</isNotNull>	
+			<isNotNull prepend="," property="sms_flag">sms_flag</isNotNull>	
+		</dynamic>
+		<![CDATA[) values (]]>
+		<dynamic prepend=" ">
+			<isNotNull prepend="," property="id">#id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="name">#name:VARCHAR#</isNotNull>
+			<isNotNull prepend="," property="password">#password:VARCHAR#</isNotNull>
+			<isNotNull prepend="," property="phone_num">#phone_num:CHAR#</isNotNull>
+			<isNotNull prepend="," property="phone_type">#phone_type:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="charge_phone_num">#charge_phone_num:CHAR#</isNotNull>
+			<isNotNull prepend="," property="charge_phone_type">#charge_phone_type:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="status">#status:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="sms_flag">#sms_flag:INTEGER#</isNotNull>
+		</dynamic>
+		<![CDATA[)]]>
+	</insert>
+
+	<update id="updateUserInfo" parameterClass="UserInfo">
+		update user_info
+		<dynamic prepend="set">
+			<isNotNull prepend="," property="id">id = #id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="name">name = #name:VARCHAR#</isNotNull>
+			<isNotNull prepend="," property="password">password = #password:VARCHAR#</isNotNull>
+			<isNotNull prepend="," property="phone_num">phone_num = #phone_num:CHAR#</isNotNull>
+			<isNotNull prepend="," property="phone_type">phone_type = #phone_type:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="charge_phone_num">charge_phone_num = #charge_phone_num:CHAR#</isNotNull>
+			<isNotNull prepend="," property="charge_phone_type">charge_phone_type = #charge_phone_type:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="status">status = #status:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="sms_flag">sms_flag = #sms_flag:INTEGER#</isNotNull>
+		</dynamic>
+		where
+		<isNotEmpty prepend=" " property="id">ID = #id#</isNotEmpty>
+		<isEmpty prepend=" " property="id">
+			<isNotEmpty prepend=" " property="map.pks">
+				ID in
+				<iterate close=")" open="(" conjunction="," property="map.pks">#map.pks[]#</iterate>
+			</isNotEmpty>
+		</isEmpty>
+	</update>
+
+	<delete id="deleteUserInfo" parameterClass="UserInfo">
+		delete from user_info where
+		<isNotEmpty prepend=" " property="id">ID = #id#</isNotEmpty>
+		<isEmpty prepend=" " property="id">
+			<isNotEmpty prepend=" " property="map.pks">
+				ID in
+				<iterate close=")" open="(" conjunction="," property="map.pks">#map.pks[]#</iterate>
+			</isNotEmpty>
+		</isEmpty>
+	</delete>
+
+</sqlMap>

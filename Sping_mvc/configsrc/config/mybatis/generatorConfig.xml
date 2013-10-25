@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >  
+<generatorConfiguration >  
+  <context id="context1" >  
+    <jdbcConnection 
+			driverClass="com.mysql.jdbc.Driver" 
+			connectionURL="jdbc:mysql://localhost:3306/jxt" 
+			userId="root" 
+			password="pass1234" />  
+    <javaModelGenerator targetPackage="com.hf.jxt.entity" targetProject="JXT" />  
+    <sqlMapGenerator targetPackage="com.hf.jxt.dao" targetProject="JXT" ></sqlMapGenerator>  
+    <javaClientGenerator targetPackage="com.hf.jxt.dao" targetProject="JXT" type="XMLMAPPER" />
+    <table schema="jxt" tableName="user_2_role" domainObjectName="UserRole" ></table>
+    <table schema="jxt" tableName="city" domainObjectName="City" ></table>
+    <table schema="jxt" tableName="district" domainObjectName="District" ></table>
+    <table schema="jxt" tableName="agent_info" domainObjectName="AgentInfo" ></table>
+     <table schema="jxt" tableName="user_2_agent" domainObjectName="UserAgent" ></table>
+     <table schema="jxt" tableName="grade_info" domainObjectName="GradeInfo" ></table>
+     <table schema="jxt" tableName="class_info" domainObjectName="ClassInfo" ></table>
+     <table schema="jxt" tableName="user_2_school" domainObjectName="User2School" ></table>
+     <table schema="jxt" tableName="student_info" domainObjectName="StudentInfo" ></table>
+     <table schema="jxt" tableName="parent_info" domainObjectName="ParentInfo" ></table>
+     <table schema="jxt" tableName="student_2_parent" domainObjectName="Student2Parent" ></table>
+  </context>  
+</generatorConfiguration> 

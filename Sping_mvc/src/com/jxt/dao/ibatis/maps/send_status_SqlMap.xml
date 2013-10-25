@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="send_status_name}">
+
+	<typeAlias alias="sendStatus" type="com.jxt.domain.SendStatus" />
+
+	<cacheModel id="oneDayCache" type="OSCACHE">
+		<flushInterval hours="24" />
+		<flushOnExecute statement="insertSendStatus" />
+		<flushOnExecute statement="updateSendStatus" />
+		<flushOnExecute statement="deleteSendStatus" />
+	</cacheModel>
+
+	<resultMap id="sendStatusResultForList" class="sendStatus">
+		<result column="id" property="id" jdbcType="INTEGER" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<resultMap id="sendStatusResult" class="sendStatus" extends="sendStatusResultForList">
+	</resultMap>
+
+	<sql id="sf-sendStatus">
+		<isNotEmpty prepend=" and " property="id">id = #id:INTEGER#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="name">name = #name:VARCHAR#</isNotEmpty>
+	</sql>
+
+	<select id="selectSendStatus" resultMap="sendStatusResult" parameterClass="sendStatus" cacheModel="oneDayCache">
+		select *send_status.table_name} where 1 = 1
+		<include refid="sf-sendStatus" />
+	</select>
+
+	<select id="selectSendStatusList" resultMap="sendStatusResultForList" parameterClass="sendStatus" cacheModel="oneDayCache">
+		<isNotEmpty property="row.count">
+			<![CDATA[ select * from ( ]]>
+		</isNotEmpty>
+		sesend_status{table.table_name} where 1 = 1
+		<include refid="sf-sendStatus" />
+		<!-- order by ID asc -->
+		<isNotEmpty property="row.count">
+			<![CDATA[ ) where rownum <= #row.count# ]]>
+		</isNotEmpty>
+	</select>
+
+	<select id="selectSendStatusCount" resultClass="long" parameterClass="sendStatus" cacheModel="oneDayCache">
+		selsend_statusfrom send_status where 1 = 1
+		<include refid="sf-sendStatus" />
+	</select>
+
+	<select id="selectSendStatusPaginatedList" resultMap="sendStatusResult" parameterClass="sendStatus" cacheModel="oneDayCache">
+		<![CDATA[ select * from ( select t_.*, rownum rn_ fromsend_statusect * from send_status where 1 = 1
+		<include refid="sf-sendStatus" />
+		<!-- order by ID asc -->
+		<![CDATA[ ) t_ where rownum <= (#row.first# + #row.count#)) where rn_ >= (#row.first# + 1) ]]>
+	</select>
+
+	<insert id="insertSendStatus" parameterClass="sendStatus">
+		<selectKey resultClass="long" keyProperty="id">select seq_xxx.nextval as id from dual </selectKey>
+		<![CDATA[insert into send_status (]]>
+		<dynamic prepend=" ">
+			<isNotNull prepend="," property="id">id</isNotNull>	
+			<isNotNull prepend="," property="name">name</isNotNull>	
+		</dynamic>
+		<![CDATA[) values (]]>
+		<dynamic prepend=" ">
+			<isNotNull prepend="," property="id">#id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="name">#name:VARCHAR#</isNotNull>
+		</dynamic>
+		<![CDATA[)]]>
+	</insert>
+
+	<update id="updateSendStatus" parameterClass="SendStatus">
+		update send_status
+		<dynamic prepend="set">
+			<isNotNull prepend="," property="id">id = #id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="name">name = #name:VARCHAR#</isNotNull>
+		</dynamic>
+		where
+		<isNotEmpty prepend=" " property="id">ID = #id#</isNotEmpty>
+		<isEmpty prepend=" " property="id">
+			<isNotEmpty prepend=" " property="map.pks">
+				ID in
+				<iterate close=")" open="(" conjunction="," property="map.pks">#map.pks[]#</iterate>
+			</isNotEmpty>
+		</isEmpty>
+	</update>
+
+	<delete id="deleteSendStatus" parameterClass="SendStatus">
+		delete from send_status where
+		<isNotEmpty prepend=" " property="id">ID = #id#</isNotEmpty>
+		<isEmpty prepend=" " property="id">
+			<isNotEmpty prepend=" " property="map.pks">
+				ID in
+				<iterate close=")" open="(" conjunction="," property="map.pks">#map.pks[]#</iterate>
+			</isNotEmpty>
+		</isEmpty>
+	</delete>
+
+</sqlMap>

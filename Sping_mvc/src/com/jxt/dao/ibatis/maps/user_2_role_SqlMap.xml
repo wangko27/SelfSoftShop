@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="user_2_role_name}">
+
+	<typeAlias alias="user2Role" type="com.jxt.domain.User2Role" />
+
+	<cacheModel id="oneDayCache" type="OSCACHE">
+		<flushInterval hours="24" />
+		<flushOnExecute statement="insertUser2Role" />
+		<flushOnExecute statement="updateUser2Role" />
+		<flushOnExecute statement="deleteUser2Role" />
+	</cacheModel>
+
+	<resultMap id="user2RoleResultForList" class="user2Role">
+		<result column="id" property="id" jdbcType="INTEGER" />
+		<result column="user_id" property="user_id" jdbcType="INTEGER" />
+		<result column="role_id" property="role_id" jdbcType="INTEGER" />
+	</resultMap>
+
+	<resultMap id="user2RoleResult" class="user2Role" extends="user2RoleResultForList">
+	</resultMap>
+
+	<sql id="sf-user2Role">
+		<isNotEmpty prepend=" and " property="id">id = #id:INTEGER#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="user_id">user_id = #user_id:INTEGER#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="role_id">role_id = #role_id:INTEGER#</isNotEmpty>
+	</sql>
+
+	<select id="selectUser2Role" resultMap="user2RoleResult" parameterClass="user2Role" cacheModel="oneDayCache">
+		select *user_2_role.table_name} where 1 = 1
+		<include refid="sf-user2Role" />
+	</select>
+
+	<select id="selectUser2RoleList" resultMap="user2RoleResultForList" parameterClass="user2Role" cacheModel="oneDayCache">
+		<isNotEmpty property="row.count">
+			<![CDATA[ select * from ( ]]>
+		</isNotEmpty>
+		seuser_2_role{table.table_name} where 1 = 1
+		<include refid="sf-user2Role" />
+		<!-- order by ID asc -->
+		<isNotEmpty property="row.count">
+			<![CDATA[ ) where rownum <= #row.count# ]]>
+		</isNotEmpty>
+	</select>
+
+	<select id="selectUser2RoleCount" resultClass="long" parameterClass="user2Role" cacheModel="oneDayCache">
+		seluser_2_rolefrom user_2_role where 1 = 1
+		<include refid="sf-user2Role" />
+	</select>
+
+	<select id="selectUser2RolePaginatedList" resultMap="user2RoleResult" parameterClass="user2Role" cacheModel="oneDayCache">
+		<![CDATA[ select * from ( select t_.*, rownum rn_ fromuser_2_roleect * from user_2_role where 1 = 1
+		<include refid="sf-user2Role" />
+		<!-- order by ID asc -->
+		<![CDATA[ ) t_ where rownum <= (#row.first# + #row.count#)) where rn_ >= (#row.first# + 1) ]]>
+	</select>
+
+	<insert id="insertUser2Role" parameterClass="user2Role">
+		<selectKey resultClass="long" keyProperty="id">select seq_xxx.nextval as id from dual </selectKey>
+		<![CDATA[insert into user_2_role (]]>
+		<dynamic prepend=" ">
+			<isNotNull prepend="," property="id">id</isNotNull>	
+			<isNotNull prepend="," property="user_id">user_id</isNotNull>	
+			<isNotNull prepend="," property="role_id">role_id</isNotNull>	
+		</dynamic>
+		<![CDATA[) values (]]>
+		<dynamic prepend=" ">
+			<isNotNull prepend="," property="id">#id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="user_id">#user_id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="role_id">#role_id:INTEGER#</isNotNull>
+		</dynamic>
+		<![CDATA[)]]>
+	</insert>
+
+	<update id="updateUser2Role" parameterClass="User2Role">
+		update user_2_role
+		<dynamic prepend="set">
+			<isNotNull prepend="," property="id">id = #id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="user_id">user_id = #user_id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="role_id">role_id = #role_id:INTEGER#</isNotNull>
+		</dynamic>
+		where
+		<isNotEmpty prepend=" " property="id">ID = #id#</isNotEmpty>
+		<isEmpty prepend=" " property="id">
+			<isNotEmpty prepend=" " property="map.pks">
+				ID in
+				<iterate close=")" open="(" conjunction="," property="map.pks">#map.pks[]#</iterate>
+			</isNotEmpty>
+		</isEmpty>
+	</update>
+
+	<delete id="deleteUser2Role" parameterClass="User2Role">
+		delete from user_2_role where
+		<isNotEmpty prepend=" " property="id">ID = #id#</isNotEmpty>
+		<isEmpty prepend=" " property="id">
+			<isNotEmpty prepend=" " property="map.pks">
+				ID in
+				<iterate close=")" open="(" conjunction="," property="map.pks">#map.pks[]#</iterate>
+			</isNotEmpty>
+		</isEmpty>
+	</delete>
+
+</sqlMap>

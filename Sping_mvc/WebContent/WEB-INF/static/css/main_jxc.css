@@ -1,0 +1,85 @@
+@charset "utf-8";
+
+/*全局函数*/
+body {margin:0; background:#dfe8f6;}
+body,th,td {font-size:12px;color:#000000;}
+
+/*TOP页面*/
+.top_daohang, .top_daohang a, .top_daohang a:visited, .top_daohang a:link {display:block;font-size:13px;color:#FFFFFF;font-weight:bold;text-decoration:none;}
+.top_daohang a:hover {display:block;color:#FFFFFF; font-size:13px; font-weight:bold; text-decoration:none;}
+
+/*LEFT页面*/
+.leftTree_daohang_selcet { background:url(../images/left_daohang_bg_slecet.jpg);border-width:1px 0px;border-style:solid;border-color:#99bbe8; height:24px; padding-left:10px;}
+.leftTree_daohang_unselcet { background:url(../images/left_daohang_bg_unslecet.jpg);border-width:1px 0px;border-style:solid;border-color:#9a9a9a; height:24px; padding-left:10px;}
+.leftTree_daohang_font,.leftTree_daohang_font a,.leftTree_daohang_font a:hover,.leftTree_daohang_font a:visited {line-height:24px; font-size:12px; font-weight:bold; color:#15428b; text-decoration:none;}
+.leftTree_first_font,.leftTree_first_font a,.leftTree_first_font a:hover,.leftTree_first_font a:visited{font-size:12px; font-weight: normal; color:#15428b; text-decoration:none;}
+.leftTree_sec_font {line-height:24px; font-size:12px; font-weight: normal; color:#000; text-decoration:none; padding-left:15px;}
+
+/*右侧基本样式*/
+.base_info_daohang {font-size:12px; font-weight:bold; color:#15428b; line-height:24px;}
+.base_info { font-size:12px; color:#666666; width:90px; height:25px; line-height:25px;}
+.base_info2 { font-size:12px; color:#666666; width:120px; height:25px; line-height:25px;}
+.base_info_red { font-size:12px; color:#ff0000;}
+.djbh_font { font-size:12px; color:#000000; padding-left:5px;}
+.copy_that_font {font-size:12px; color:#000000; padding:0px 5px;}
+.copy_that_font a,.copy_that_font a:visited,.copy_that_font a:hover {font-size:12px; color:#1d7725; text-decoration:none;}
+.deal_with {font-size:12px; color:#000000; padding:0 8px;}
+.deal_with a,.deal_with a:visited,.deal_with a:hover {font-size:12px; color:#1d7725; text-decoration:none;}
+.total_Area {font-size:12px;color:#000000;line-height:24px;}
+.detail_Area_daohang {font-size:12px;color:#666666;line-height:21px; padding:0px 5px; border-right:1px solid #d0d0d0; border-bottom:1px solid #d0d0d0;}
+.detail_Area_daohang2 {font-size:12px;color:#666666;line-height:21px;padding:0px 5px;border-top:1px solid #d0d0d0;border-right:1px solid #d0d0d0; border-bottom:1px solid #d0d0d0;}
+.detail_Area_detail{font-size:12px;color:#000;line-height:21px; padding:0px 5px; border-right:1px solid #ededed; border-bottom:1px solid #ededed;}
+.detail_Area_detail2{font-size:12px;color:#000;line-height:21px;border-right:1px solid #ededed; border-bottom:1px solid #ededed;}
+.detail_Area_detail a,.detail_Area_detail a:hover,.detail_Area_detail a:visited {border:0px;font-size:12px;color:#000;line-height:21px; padding:0px 5px;text-decoration:none;}
+.operate_font,.operate_font a,.operate_font a:visited{font-size:12px; color:#1d7725; text-decoration:none; }
+.Normal_daohang {font-size:12px; color:#000000;}
+.code_font a,.code_font a:visited{font-size:12px; color:#000000;text-decoration:none;}
+.code_font a:hover{font-size:12px; color:blue;text-decoration: underline;}
+
+
+
+
+/*全局基本样式包括输入框、按钮、文本域等*/
+   /*输入框样式开始*/
+.textfield {font-size:12px;width:170px;height:20px; background:url(../images/textfield_bg.jpg) repeat-x; border-style:solid; border-width:1px 0px 1px 1px; border-color:#c0c3d1;}
+.textfield_2 {font-size:12px;width:191px;height:20px; background:url(../images/textfield_bg.jpg) repeat-x; border:1px solid #c0c3d1;}
+.textfield_3{font-size:12px;width:96%;height:20px; background:url(../images/textfield_bg.jpg) repeat-x; border:1px solid #c0c3d1;}
+.textfield_4 {font-size:12px;width:90px;height:20px; background:url(../images/textfield_bg.jpg) repeat-x; border:1px solid #c0c3d1;}
+.textfield_5 {font-size:12px;width:70%;height:20px; background:url(../images/textfield_bg.jpg) repeat-x; border:1px solid #c0c3d1;}
+.textfield_WrittenAble{font-size:12px;width:99%; height:100%; background:#83cdd2; border:0;}
+.textfield_WrittenAble_onfocus{font-size:12px;width:99%; height:100%; background:#fff; border:1px solid #99bbe8;}
+.textfield_Noborder {font-size:12px;width:99%; height:100%; border:0px; background: none}
+.textfield_Noborder_onfocus {font-size:12px;width:99%; height:100%; background:#fff; border:1px solid #99bbe8;}
+.textfield_page {font-size:12px;border:1px solid #1860bb; width:50px; height:14px;}/*页码输入框样式*/
+.EditCell_TextBox {font-size:12px;width: 90%;border:1px solid #99bbe8;}
+.EditCell_DropDownList {font-size:12px;width: 90%;}
+  /*输入框样式结束*/
+
+.textarea {font-size:12px;width:90%; height:58px; border:1px solid #c0c3d1;}
+.textarea_2 {font-size:12px;width:211px; height:58px; border:1px solid #c0c3d1;}
+
+.checkbox_bg { width:13px; height:13px; border:1px solid #8e8f8f;}
+.export_font,.export_font a,.export_font a:visited {font-size:12px; color:#494949; text-decoration:none;}
+.export_font a:hover {font-size:12px; color:#ff0000; text-decoration: underline;}
+
+  /*下拉列表框样式开始*/
+.select{border:1px #c0c3d1 solid;float: left;}
+.select div{border:1px #fff solid;float: left;}
+.select div select{display:block;float:left;margin:-2px;font-size:12px;color:#000;width:124px;}
+
+.detail_select{border:1px #c0c3d1 solid;float: left;}
+.detail_select div{border:1px #fff solid;float: left;}
+.detail_select div select{display:block;float:left;margin:-2px;font-size:12px;color:#000;width:99%;}
+  /*下拉列表框样式结束*/
+
+.pic_button {border:0px;font-size:12px;color:#000000;}
+.button_Noborder { border:none; background:#FFFFFF;font-size:12px; color:#1d7725; line-height:24px; height:25px;}
+
+/*弹出DIV中样式*/
+.div_pop-up_table { background:#dfe8f6; border:1px solid #99bbe8;}
+.div_pop-up_table2 {background:#fff; border:1px solid #99bbe8;}
+.div_pop-up_daohang { font-size:12px; font-weight:bold;}
+.div_textfield_short{width:120px;height:18px;background:url(../images/textfield_bg.jpg);border:1px solid #c0c3d1;}
+.div_textfield_short2{width:99px;height:18px;background:url(../images/textfield_bg.jpg);border:1px solid #c0c3d1;}
+.div_textarea {width:120px; height:70px; border:1px solid #c0c3d1;}
+

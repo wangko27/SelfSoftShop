@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="charge_history_name}">
+
+	<typeAlias alias="chargeHistory" type="com.jxt.domain.ChargeHistory" />
+
+	<cacheModel id="oneDayCache" type="OSCACHE">
+		<flushInterval hours="24" />
+		<flushOnExecute statement="insertChargeHistory" />
+		<flushOnExecute statement="updateChargeHistory" />
+		<flushOnExecute statement="deleteChargeHistory" />
+	</cacheModel>
+
+	<resultMap id="chargeHistoryResultForList" class="chargeHistory">
+		<result column="id" property="id" jdbcType="INTEGER" />
+		<result column="student_id" property="student_id" jdbcType="INTEGER" />
+		<result column="parent_id" property="parent_id" jdbcType="INTEGER" />
+		<result column="phone_num" property="phone_num" jdbcType="CHAR" />
+		<result column="phone_type" property="phone_type" jdbcType="INTEGER" />
+		<result column="charge_phone_num" property="charge_phone_num" jdbcType="CHAR" />
+		<result column="charge_phone_type" property="charge_phone_type" jdbcType="INTEGER" />
+		<result column="effect_time" property="effect_time" jdbcType="TIMESTAMP" />
+		<result column="expired_time" property="expired_time" jdbcType="TIMESTAMP" />
+		<result column="par_phone_send_status" property="par_phone_send_status" jdbcType="INTEGER" />
+		<result column="reason" property="reason" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<resultMap id="chargeHistoryResult" class="chargeHistory" extends="chargeHistoryResultForList">
+	</resultMap>
+
+	<sql id="sf-chargeHistory">
+		<isNotEmpty prepend=" and " property="id">id = #id:INTEGER#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="student_id">student_id = #student_id:INTEGER#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="parent_id">parent_id = #parent_id:INTEGER#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="phone_num">phone_num = #phone_num:CHAR#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="phone_type">phone_type = #phone_type:INTEGER#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="charge_phone_num">charge_phone_num = #charge_phone_num:CHAR#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="charge_phone_type">charge_phone_type = #charge_phone_type:INTEGER#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="effect_time">effect_time = #effect_time:TIMESTAMP#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="expired_time">expired_time = #expired_time:TIMESTAMP#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="par_phone_send_status">par_phone_send_status = #par_phone_send_status:INTEGER#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="reason">reason = #reason:VARCHAR#</isNotEmpty>
+	</sql>
+
+	<select id="selectChargeHistory" resultMap="chargeHistoryResult" parameterClass="chargeHistory" cacheModel="oneDayCache">
+		select *charge_history.table_name} where 1 = 1
+		<include refid="sf-chargeHistory" />
+	</select>
+
+	<select id="selectChargeHistoryList" resultMap="chargeHistoryResultForList" parameterClass="chargeHistory" cacheModel="oneDayCache">
+		<isNotEmpty property="row.count">
+			<![CDATA[ select * from ( ]]>
+		</isNotEmpty>
+		secharge_history{table.table_name} where 1 = 1
+		<include refid="sf-chargeHistory" />
+		<!-- order by ID asc -->
+		<isNotEmpty property="row.count">
+			<![CDATA[ ) where rownum <= #row.count# ]]>
+		</isNotEmpty>
+	</select>
+
+	<select id="selectChargeHistoryCount" resultClass="long" parameterClass="chargeHistory" cacheModel="oneDayCache">
+		selcharge_historyfrom charge_history where 1 = 1
+		<include refid="sf-chargeHistory" />
+	</select>
+
+	<select id="selectChargeHistoryPaginatedList" resultMap="chargeHistoryResult" parameterClass="chargeHistory" cacheModel="oneDayCache">
+		<![CDATA[ select * from ( select t_.*, rownum rn_ fromcharge_historyect * from charge_history where 1 = 1
+		<include refid="sf-chargeHistory" />
+		<!-- order by ID asc -->
+		<![CDATA[ ) t_ where rownum <= (#row.first# + #row.count#)) where rn_ >= (#row.first# + 1) ]]>
+	</select>
+
+	<insert id="insertChargeHistory" parameterClass="chargeHistory">
+		<selectKey resultClass="long" keyProperty="id">select seq_xxx.nextval as id from dual </selectKey>
+		<![CDATA[insert into charge_history (]]>
+		<dynamic prepend=" ">
+			<isNotNull prepend="," property="id">id</isNotNull>	
+			<isNotNull prepend="," property="student_id">student_id</isNotNull>	
+			<isNotNull prepend="," property="parent_id">parent_id</isNotNull>	
+			<isNotNull prepend="," property="phone_num">phone_num</isNotNull>	
+			<isNotNull prepend="," property="phone_type">phone_type</isNotNull>	
+			<isNotNull prepend="," property="charge_phone_num">charge_phone_num</isNotNull>	
+			<isNotNull prepend="," property="charge_phone_type">charge_phone_type</isNotNull>	
+			<isNotNull prepend="," property="effect_time">effect_time</isNotNull>	
+			<isNotNull prepend="," property="expired_time">expired_time</isNotNull>	
+			<isNotNull prepend="," property="par_phone_send_status">par_phone_send_status</isNotNull>	
+			<isNotNull prepend="," property="reason">reason</isNotNull>	
+		</dynamic>
+		<![CDATA[) values (]]>
+		<dynamic prepend=" ">
+			<isNotNull prepend="," property="id">#id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="student_id">#student_id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="parent_id">#parent_id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="phone_num">#phone_num:CHAR#</isNotNull>
+			<isNotNull prepend="," property="phone_type">#phone_type:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="charge_phone_num">#charge_phone_num:CHAR#</isNotNull>
+			<isNotNull prepend="," property="charge_phone_type">#charge_phone_type:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="effect_time">#effect_time:TIMESTAMP#</isNotNull>
+			<isNotNull prepend="," property="expired_time">#expired_time:TIMESTAMP#</isNotNull>
+			<isNotNull prepend="," property="par_phone_send_status">#par_phone_send_status:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="reason">#reason:VARCHAR#</isNotNull>
+		</dynamic>
+		<![CDATA[)]]>
+	</insert>
+
+	<update id="updateChargeHistory" parameterClass="ChargeHistory">
+		update charge_history
+		<dynamic prepend="set">
+			<isNotNull prepend="," property="id">id = #id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="student_id">student_id = #student_id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="parent_id">parent_id = #parent_id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="phone_num">phone_num = #phone_num:CHAR#</isNotNull>
+			<isNotNull prepend="," property="phone_type">phone_type = #phone_type:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="charge_phone_num">charge_phone_num = #charge_phone_num:CHAR#</isNotNull>
+			<isNotNull prepend="," property="charge_phone_type">charge_phone_type = #charge_phone_type:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="effect_time">effect_time = #effect_time:TIMESTAMP#</isNotNull>
+			<isNotNull prepend="," property="expired_time">expired_time = #expired_time:TIMESTAMP#</isNotNull>
+			<isNotNull prepend="," property="par_phone_send_status">par_phone_send_status = #par_phone_send_status:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="reason">reason = #reason:VARCHAR#</isNotNull>
+		</dynamic>
+		where
+		<isNotEmpty prepend=" " property="id">ID = #id#</isNotEmpty>
+		<isEmpty prepend=" " property="id">
+			<isNotEmpty prepend=" " property="map.pks">
+				ID in
+				<iterate close=")" open="(" conjunction="," property="map.pks">#map.pks[]#</iterate>
+			</isNotEmpty>
+		</isEmpty>
+	</update>
+
+	<delete id="deleteChargeHistory" parameterClass="ChargeHistory">
+		delete from charge_history where
+		<isNotEmpty prepend=" " property="id">ID = #id#</isNotEmpty>
+		<isEmpty prepend=" " property="id">
+			<isNotEmpty prepend=" " property="map.pks">
+				ID in
+				<iterate close=")" open="(" conjunction="," property="map.pks">#map.pks[]#</iterate>
+			</isNotEmpty>
+		</isEmpty>
+	</delete>
+
+</sqlMap>

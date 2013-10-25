@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="grade_info_name}">
+
+	<typeAlias alias="gradeInfo" type="com.hf.jxt.domain.GradeInfo" />
+
+	<cacheModel id="oneDayCache" type="OSCACHE">
+		<flushInterval hours="24" />
+		<flushOnExecute statement="insertGradeInfo" />
+		<flushOnExecute statement="updateGradeInfo" />
+		<flushOnExecute statement="deleteGradeInfo" />
+	</cacheModel>
+
+	<resultMap id="gradeInfoResultForList" class="gradeInfo">
+		<result column="id" property="id" jdbcType="INTEGER" />
+		<result column="name" property="name" jdbcType="CHAR" />
+		<result column="phase" property="phase" jdbcType="CHAR" />
+	</resultMap>
+
+	<resultMap id="gradeInfoResult" class="gradeInfo" extends="gradeInfoResultForList">
+	</resultMap>
+
+	<sql id="sf-gradeInfo">
+		<isNotEmpty prepend=" and " property="id">id = #id:INTEGER#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="name">name = #name:CHAR#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="phase">phase = #phase:CHAR#</isNotEmpty>
+	</sql>
+
+	<select id="selectGradeInfo" resultMap="gradeInfoResult" parameterClass="gradeInfo" cacheModel="oneDayCache">
+		select *grade_info.table_name} where 1 = 1
+		<include refid="sf-gradeInfo" />
+	</select>
+
+	<select id="selectGradeInfoList" resultMap="gradeInfoResultForList" parameterClass="gradeInfo" cacheModel="oneDayCache">
+		<isNotEmpty property="row.count">
+			<![CDATA[ select * from ( ]]>
+		</isNotEmpty>
+		segrade_info{table.table_name} where 1 = 1
+		<include refid="sf-gradeInfo" />
+		<!-- order by ID asc -->
+		<isNotEmpty property="row.count">
+			<![CDATA[ ) where rownum <= #row.count# ]]>
+		</isNotEmpty>
+	</select>
+
+	<select id="selectGradeInfoCount" resultClass="long" parameterClass="gradeInfo" cacheModel="oneDayCache">
+		selgrade_infofrom grade_info where 1 = 1
+		<include refid="sf-gradeInfo" />
+	</select>
+
+	<select id="selectGradeInfoPaginatedList" resultMap="gradeInfoResult" parameterClass="gradeInfo" cacheModel="oneDayCache">
+		<![CDATA[ select * from ( select t_.*, rownum rn_ fromgrade_infoect * from grade_info where 1 = 1
+		<include refid="sf-gradeInfo" />
+		<!-- order by ID asc -->
+		<![CDATA[ ) t_ where rownum <= (#row.first# + #row.count#)) where rn_ >= (#row.first# + 1) ]]>
+	</select>
+
+	<insert id="insertGradeInfo" parameterClass="gradeInfo">
+		<selectKey resultClass="long" keyProperty="id">select seq_xxx.nextval as id from dual </selectKey>
+		<![CDATA[insert into grade_info (]]>
+		<dynamic prepend=" ">
+			<isNotNull prepend="," property="id">id</isNotNull>	
+			<isNotNull prepend="," property="name">name</isNotNull>	
+			<isNotNull prepend="," property="phase">phase</isNotNull>	
+		</dynamic>
+		<![CDATA[) values (]]>
+		<dynamic prepend=" ">
+			<isNotNull prepend="," property="id">#id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="name">#name:CHAR#</isNotNull>
+			<isNotNull prepend="," property="phase">#phase:CHAR#</isNotNull>
+		</dynamic>
+		<![CDATA[)]]>
+	</insert>
+
+	<update id="updateGradeInfo" parameterClass="GradeInfo">
+		update grade_info
+		<dynamic prepend="set">
+			<isNotNull prepend="," property="id">id = #id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="name">name = #name:CHAR#</isNotNull>
+			<isNotNull prepend="," property="phase">phase = #phase:CHAR#</isNotNull>
+		</dynamic>
+		where
+		<isNotEmpty prepend=" " property="id">ID = #id#</isNotEmpty>
+		<isEmpty prepend=" " property="id">
+			<isNotEmpty prepend=" " property="map.pks">
+				ID in
+				<iterate close=")" open="(" conjunction="," property="map.pks">#map.pks[]#</iterate>
+			</isNotEmpty>
+		</isEmpty>
+	</update>
+
+	<delete id="deleteGradeInfo" parameterClass="GradeInfo">
+		delete from grade_info where
+		<isNotEmpty prepend=" " property="id">ID = #id#</isNotEmpty>
+		<isEmpty prepend=" " property="id">
+			<isNotEmpty prepend=" " property="map.pks">
+				ID in
+				<iterate close=")" open="(" conjunction="," property="map.pks">#map.pks[]#</iterate>
+			</isNotEmpty>
+		</isEmpty>
+	</delete>
+
+</sqlMap>

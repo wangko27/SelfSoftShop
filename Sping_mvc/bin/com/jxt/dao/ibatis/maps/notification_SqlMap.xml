@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="notification_name}">
+
+	<typeAlias alias="notification" type="com.jxt.domain.Notification" />
+
+	<cacheModel id="oneDayCache" type="OSCACHE">
+		<flushInterval hours="24" />
+		<flushOnExecute statement="insertNotification" />
+		<flushOnExecute statement="updateNotification" />
+		<flushOnExecute statement="deleteNotification" />
+	</cacheModel>
+
+	<resultMap id="notificationResultForList" class="notification">
+		<result column="id" property="id" jdbcType="INTEGER" />
+		<result column="subject" property="subject" jdbcType="VARCHAR" />
+		<result column="content" property="content" jdbcType="VARCHAR" />
+		<result column="from_user_id" property="from_user_id" jdbcType="INTEGER" />
+		<result column="to_user_id" property="to_user_id" jdbcType="INTEGER" />
+		<result column="status" property="status" jdbcType="INTEGER" />
+		<result column="created_date" property="created_date" jdbcType="TIMESTAMP" />
+	</resultMap>
+
+	<resultMap id="notificationResult" class="notification" extends="notificationResultForList">
+	</resultMap>
+
+	<sql id="sf-notification">
+		<isNotEmpty prepend=" and " property="id">id = #id:INTEGER#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="subject">subject = #subject:VARCHAR#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="content">content = #content:VARCHAR#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="from_user_id">from_user_id = #from_user_id:INTEGER#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="to_user_id">to_user_id = #to_user_id:INTEGER#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="status">status = #status:INTEGER#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="created_date">created_date = #created_date:TIMESTAMP#</isNotEmpty>
+	</sql>
+
+	<select id="selectNotification" resultMap="notificationResult" parameterClass="notification" cacheModel="oneDayCache">
+		select *notification.table_name} where 1 = 1
+		<include refid="sf-notification" />
+	</select>
+
+	<select id="selectNotificationList" resultMap="notificationResultForList" parameterClass="notification" cacheModel="oneDayCache">
+		<isNotEmpty property="row.count">
+			<![CDATA[ select * from ( ]]>
+		</isNotEmpty>
+		senotification{table.table_name} where 1 = 1
+		<include refid="sf-notification" />
+		<!-- order by ID asc -->
+		<isNotEmpty property="row.count">
+			<![CDATA[ ) where rownum <= #row.count# ]]>
+		</isNotEmpty>
+	</select>
+
+	<select id="selectNotificationCount" resultClass="long" parameterClass="notification" cacheModel="oneDayCache">
+		selnotificationfrom notification where 1 = 1
+		<include refid="sf-notification" />
+	</select>
+
+	<select id="selectNotificationPaginatedList" resultMap="notificationResult" parameterClass="notification" cacheModel="oneDayCache">
+		<![CDATA[ select * from ( select t_.*, rownum rn_ fromnotificationect * from notification where 1 = 1
+		<include refid="sf-notification" />
+		<!-- order by ID asc -->
+		<![CDATA[ ) t_ where rownum <= (#row.first# + #row.count#)) where rn_ >= (#row.first# + 1) ]]>
+	</select>
+
+	<insert id="insertNotification" parameterClass="notification">
+		<selectKey resultClass="long" keyProperty="id">select seq_xxx.nextval as id from dual </selectKey>
+		<![CDATA[insert into notification (]]>
+		<dynamic prepend=" ">
+			<isNotNull prepend="," property="id">id</isNotNull>	
+			<isNotNull prepend="," property="subject">subject</isNotNull>	
+			<isNotNull prepend="," property="content">content</isNotNull>	
+			<isNotNull prepend="," property="from_user_id">from_user_id</isNotNull>	
+			<isNotNull prepend="," property="to_user_id">to_user_id</isNotNull>	
+			<isNotNull prepend="," property="status">status</isNotNull>	
+			<isNotNull prepend="," property="created_date">created_date</isNotNull>	
+		</dynamic>
+		<![CDATA[) values (]]>
+		<dynamic prepend=" ">
+			<isNotNull prepend="," property="id">#id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="subject">#subject:VARCHAR#</isNotNull>
+			<isNotNull prepend="," property="content">#content:VARCHAR#</isNotNull>
+			<isNotNull prepend="," property="from_user_id">#from_user_id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="to_user_id">#to_user_id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="status">#status:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="created_date">#created_date:TIMESTAMP#</isNotNull>
+		</dynamic>
+		<![CDATA[)]]>
+	</insert>
+
+	<update id="updateNotification" parameterClass="Notification">
+		update notification
+		<dynamic prepend="set">
+			<isNotNull prepend="," property="id">id = #id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="subject">subject = #subject:VARCHAR#</isNotNull>
+			<isNotNull prepend="," property="content">content = #content:VARCHAR#</isNotNull>
+			<isNotNull prepend="," property="from_user_id">from_user_id = #from_user_id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="to_user_id">to_user_id = #to_user_id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="status">status = #status:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="created_date">created_date = #created_date:TIMESTAMP#</isNotNull>
+		</dynamic>
+		where
+		<isNotEmpty prepend=" " property="id">ID = #id#</isNotEmpty>
+		<isEmpty prepend=" " property="id">
+			<isNotEmpty prepend=" " property="map.pks">
+				ID in
+				<iterate close=")" open="(" conjunction="," property="map.pks">#map.pks[]#</iterate>
+			</isNotEmpty>
+		</isEmpty>
+	</update>
+
+	<delete id="deleteNotification" parameterClass="Notification">
+		delete from notification where
+		<isNotEmpty prepend=" " property="id">ID = #id#</isNotEmpty>
+		<isEmpty prepend=" " property="id">
+			<isNotEmpty prepend=" " property="map.pks">
+				ID in
+				<iterate close=")" open="(" conjunction="," property="map.pks">#map.pks[]#</iterate>
+			</isNotEmpty>
+		</isEmpty>
+	</delete>
+
+</sqlMap>

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="sms_info_name}">
+
+	<typeAlias alias="smsInfo" type="com.hf.jxt.domain.SmsInfo" />
+
+	<cacheModel id="oneDayCache" type="OSCACHE">
+		<flushInterval hours="24" />
+		<flushOnExecute statement="insertSmsInfo" />
+		<flushOnExecute statement="updateSmsInfo" />
+		<flushOnExecute statement="deleteSmsInfo" />
+	</cacheModel>
+
+	<resultMap id="smsInfoResultForList" class="smsInfo">
+		<result column="id" property="id" jdbcType="INTEGER" />
+		<result column="operation_id" property="operation_id" jdbcType="INTEGER" />
+		<result column="receive_type" property="receive_type" jdbcType="INTEGER" />
+		<result column="receive_user_id" property="receive_user_id" jdbcType="INTEGER" />
+		<result column="student_id" property="student_id" jdbcType="INTEGER" />
+		<result column="parent_id" property="parent_id" jdbcType="INTEGER" />
+		<result column="phone_num" property="phone_num" jdbcType="CHAR" />
+		<result column="phone_type" property="phone_type" jdbcType="INTEGER" />
+		<result column="charge_phone_num" property="charge_phone_num" jdbcType="CHAR" />
+		<result column="charge_phone_type" property="charge_phone_type" jdbcType="INTEGER" />
+		<result column="content" property="content" jdbcType="VARCHAR" />
+		<result column="scheduled_time" property="scheduled_time" jdbcType="TIMESTAMP" />
+		<result column="sent_time" property="sent_time" jdbcType="TIMESTAMP" />
+		<result column="status" property="status" jdbcType="INTEGER" />
+		<result column="trial_num" property="trial_num" jdbcType="INTEGER" />
+		<result column="failed_reason" property="failed_reason" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<resultMap id="smsInfoResult" class="smsInfo" extends="smsInfoResultForList">
+	</resultMap>
+
+	<sql id="sf-smsInfo">
+		<isNotEmpty prepend=" and " property="id">id = #id:INTEGER#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="operation_id">operation_id = #operation_id:INTEGER#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="receive_type">receive_type = #receive_type:INTEGER#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="receive_user_id">receive_user_id = #receive_user_id:INTEGER#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="student_id">student_id = #student_id:INTEGER#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="parent_id">parent_id = #parent_id:INTEGER#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="phone_num">phone_num = #phone_num:CHAR#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="phone_type">phone_type = #phone_type:INTEGER#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="charge_phone_num">charge_phone_num = #charge_phone_num:CHAR#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="charge_phone_type">charge_phone_type = #charge_phone_type:INTEGER#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="content">content = #content:VARCHAR#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="scheduled_time">scheduled_time = #scheduled_time:TIMESTAMP#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="sent_time">sent_time = #sent_time:TIMESTAMP#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="status">status = #status:INTEGER#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="trial_num">trial_num = #trial_num:INTEGER#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="failed_reason">failed_reason = #failed_reason:VARCHAR#</isNotEmpty>
+	</sql>
+
+	<select id="selectSmsInfo" resultMap="smsInfoResult" parameterClass="smsInfo" cacheModel="oneDayCache">
+		select *sms_info.table_name} where 1 = 1
+		<include refid="sf-smsInfo" />
+	</select>
+
+	<select id="selectSmsInfoList" resultMap="smsInfoResultForList" parameterClass="smsInfo" cacheModel="oneDayCache">
+		<isNotEmpty property="row.count">
+			<![CDATA[ select * from ( ]]>
+		</isNotEmpty>
+		sesms_info{table.table_name} where 1 = 1
+		<include refid="sf-smsInfo" />
+		<!-- order by ID asc -->
+		<isNotEmpty property="row.count">
+			<![CDATA[ ) where rownum <= #row.count# ]]>
+		</isNotEmpty>
+	</select>
+
+	<select id="selectSmsInfoCount" resultClass="long" parameterClass="smsInfo" cacheModel="oneDayCache">
+		selsms_infofrom sms_info where 1 = 1
+		<include refid="sf-smsInfo" />
+	</select>
+
+	<select id="selectSmsInfoPaginatedList" resultMap="smsInfoResult" parameterClass="smsInfo" cacheModel="oneDayCache">
+		<![CDATA[ select * from ( select t_.*, rownum rn_ fromsms_infoect * from sms_info where 1 = 1
+		<include refid="sf-smsInfo" />
+		<!-- order by ID asc -->
+		<![CDATA[ ) t_ where rownum <= (#row.first# + #row.count#)) where rn_ >= (#row.first# + 1) ]]>
+	</select>
+
+	<insert id="insertSmsInfo" parameterClass="smsInfo">
+		<selectKey resultClass="long" keyProperty="id">select seq_xxx.nextval as id from dual </selectKey>
+		<![CDATA[insert into sms_info (]]>
+		<dynamic prepend=" ">
+			<isNotNull prepend="," property="id">id</isNotNull>	
+			<isNotNull prepend="," property="operation_id">operation_id</isNotNull>	
+			<isNotNull prepend="," property="receive_type">receive_type</isNotNull>	
+			<isNotNull prepend="," property="receive_user_id">receive_user_id</isNotNull>	
+			<isNotNull prepend="," property="student_id">student_id</isNotNull>	
+			<isNotNull prepend="," property="parent_id">parent_id</isNotNull>	
+			<isNotNull prepend="," property="phone_num">phone_num</isNotNull>	
+			<isNotNull prepend="," property="phone_type">phone_type</isNotNull>	
+			<isNotNull prepend="," property="charge_phone_num">charge_phone_num</isNotNull>	
+			<isNotNull prepend="," property="charge_phone_type">charge_phone_type</isNotNull>	
+			<isNotNull prepend="," property="content">content</isNotNull>	
+			<isNotNull prepend="," property="scheduled_time">scheduled_time</isNotNull>	
+			<isNotNull prepend="," property="sent_time">sent_time</isNotNull>	
+			<isNotNull prepend="," property="status">status</isNotNull>	
+			<isNotNull prepend="," property="trial_num">trial_num</isNotNull>	
+			<isNotNull prepend="," property="failed_reason">failed_reason</isNotNull>	
+		</dynamic>
+		<![CDATA[) values (]]>
+		<dynamic prepend=" ">
+			<isNotNull prepend="," property="id">#id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="operation_id">#operation_id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="receive_type">#receive_type:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="receive_user_id">#receive_user_id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="student_id">#student_id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="parent_id">#parent_id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="phone_num">#phone_num:CHAR#</isNotNull>
+			<isNotNull prepend="," property="phone_type">#phone_type:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="charge_phone_num">#charge_phone_num:CHAR#</isNotNull>
+			<isNotNull prepend="," property="charge_phone_type">#charge_phone_type:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="content">#content:VARCHAR#</isNotNull>
+			<isNotNull prepend="," property="scheduled_time">#scheduled_time:TIMESTAMP#</isNotNull>
+			<isNotNull prepend="," property="sent_time">#sent_time:TIMESTAMP#</isNotNull>
+			<isNotNull prepend="," property="status">#status:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="trial_num">#trial_num:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="failed_reason">#failed_reason:VARCHAR#</isNotNull>
+		</dynamic>
+		<![CDATA[)]]>
+	</insert>
+
+	<update id="updateSmsInfo" parameterClass="SmsInfo">
+		update sms_info
+		<dynamic prepend="set">
+			<isNotNull prepend="," property="id">id = #id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="operation_id">operation_id = #operation_id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="receive_type">receive_type = #receive_type:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="receive_user_id">receive_user_id = #receive_user_id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="student_id">student_id = #student_id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="parent_id">parent_id = #parent_id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="phone_num">phone_num = #phone_num:CHAR#</isNotNull>
+			<isNotNull prepend="," property="phone_type">phone_type = #phone_type:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="charge_phone_num">charge_phone_num = #charge_phone_num:CHAR#</isNotNull>
+			<isNotNull prepend="," property="charge_phone_type">charge_phone_type = #charge_phone_type:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="content">content = #content:VARCHAR#</isNotNull>
+			<isNotNull prepend="," property="scheduled_time">scheduled_time = #scheduled_time:TIMESTAMP#</isNotNull>
+			<isNotNull prepend="," property="sent_time">sent_time = #sent_time:TIMESTAMP#</isNotNull>
+			<isNotNull prepend="," property="status">status = #status:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="trial_num">trial_num = #trial_num:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="failed_reason">failed_reason = #failed_reason:VARCHAR#</isNotNull>
+		</dynamic>
+		where
+		<isNotEmpty prepend=" " property="id">ID = #id#</isNotEmpty>
+		<isEmpty prepend=" " property="id">
+			<isNotEmpty prepend=" " property="map.pks">
+				ID in
+				<iterate close=")" open="(" conjunction="," property="map.pks">#map.pks[]#</iterate>
+			</isNotEmpty>
+		</isEmpty>
+	</update>
+
+	<delete id="deleteSmsInfo" parameterClass="SmsInfo">
+		delete from sms_info where
+		<isNotEmpty prepend=" " property="id">ID = #id#</isNotEmpty>
+		<isEmpty prepend=" " property="id">
+			<isNotEmpty prepend=" " property="map.pks">
+				ID in
+				<iterate close=")" open="(" conjunction="," property="map.pks">#map.pks[]#</iterate>
+			</isNotEmpty>
+		</isEmpty>
+	</delete>
+
+</sqlMap>

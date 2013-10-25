@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMapConfig 
+		PUBLIC "-//ibatis.apache.org//DTD SQL Map Config 2.0//EN" 
+		"http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
+
+<sqlMapConfig>
+	<settings cacheModelsEnabled="false" enhancementEnabled="true" lazyLoadingEnabled="true"
+		useStatementNamespaces="false" statementCachingEnabled="true" classInfoCacheEnabled="true" />
+    
+    <!--  
+	<typeHandler jdbcType="BLOB" javaType="[B"
+		callback="org.springframework.orm.ibatis.support.BlobByteArrayTypeHandler" />
+	<typeHandler jdbcType="CLOB" javaType="java.lang.String"
+		callback="org.springframework.orm.ibatis.support.ClobStringTypeHandler" />
+-->
+	<sqlMap resource="com/jxt/dao/ibatis/maps/agent_info_SqlMap.xml" />
+	<sqlMap resource="com/jxt/dao/ibatis/maps/charge_history_SqlMap.xml" />
+	<sqlMap resource="com/jxt/dao/ibatis/maps/charge_status_SqlMap.xml" />
+	<sqlMap resource="com/jxt/dao/ibatis/maps/city_SqlMap.xml" />
+	<sqlMap resource="com/jxt/dao/ibatis/maps/class_info_SqlMap.xml" />
+	<sqlMap resource="com/jxt/dao/ibatis/maps/district_SqlMap.xml" />
+	<sqlMap resource="com/jxt/dao/ibatis/maps/grade_info_SqlMap.xml" />
+	<sqlMap resource="com/jxt/dao/ibatis/maps/notification_SqlMap.xml" />
+	<sqlMap resource="com/jxt/dao/ibatis/maps/parent_info_SqlMap.xml" />
+	<sqlMap resource="com/jxt/dao/ibatis/maps/role_info_SqlMap.xml" />
+	<sqlMap resource="com/jxt/dao/ibatis/maps/school_info_SqlMap.xml" />
+	<sqlMap resource="com/jxt/dao/ibatis/maps/send_status_SqlMap.xml" />
+	<sqlMap resource="com/jxt/dao/ibatis/maps/sms_info_SqlMap.xml" />
+	<sqlMap resource="com/jxt/dao/ibatis/maps/sms_operation_history_SqlMap.xml" />
+	<sqlMap resource="com/jxt/dao/ibatis/maps/student_2_parent_SqlMap.xml" />
+	<sqlMap resource="com/jxt/dao/ibatis/maps/student_info_SqlMap.xml" />
+	<sqlMap resource="com/jxt/dao/ibatis/maps/user_2_agent_SqlMap.xml" />
+	<sqlMap resource="com/jxt/dao/ibatis/maps/user_2_role_SqlMap.xml" />
+	<sqlMap resource="com/jxt/dao/ibatis/maps/user_2_school_SqlMap.xml" />
+	<sqlMap resource="com/jxt/dao/ibatis/maps/user_info_SqlMap.xml" />
+
+</sqlMapConfig>

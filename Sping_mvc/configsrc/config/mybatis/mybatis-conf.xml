@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+    <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"  
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <setting name="cacheEnabled" value="true" />
+        <setting name="lazyLoadingEnabled" value="true" />
+        <setting name="aggressiveLazyLoading" value="false" />
+        <setting name="multipleResultSetsEnabled" value="true" />
+        <setting name="useColumnLabel" value="true" />
+        <setting name="autoMappingBehavior" value="FULL" />
+        <setting name="defaultExecutorType" value="SIMPLE" />
+        <setting name="defaultStatementTimeout" value="25000" />
+    </settings>
+    
+    <mappers >
+    	<package name="com.jxt.dao"/>
+	   <!--   <mapper resource="com/jxt/dao/mybatis/maps/agent_info_SqlMap.xml" />-->
+	    <!--  
+		<mapper resource="com/jxt/dao/mybatis/maps/charge_history_SqlMap.xml" />
+		<mapper resource="com/jxt/dao/mybatis/maps/charge_status_SqlMap.xml" />
+		<mapper resource="com/jxt/dao/mybatis/maps/city_SqlMap.xml" />
+		<mapper resource="com/jxt/dao/mybatis/maps/class_info_SqlMap.xml" />
+		<mapper resource="com/jxt/dao/mybatis/maps/district_SqlMap.xml" />
+		<mapper resource="com/jxt/dao/mybatis/maps/grade_info_SqlMap.xml" />
+		<mapper resource="com/jxt/dao/mybatis/maps/notification_SqlMap.xml" />
+		<mapper resource="com/jxt/dao/mybatis/maps/parent_info_SqlMap.xml" />
+		<mapper resource="com/jxt/dao/mybatis/maps/role_info_SqlMap.xml" />
+		<mapper resource="com/jxt/dao/mybatis/maps/school_info_SqlMap.xml" />
+		<mapper resource="com/jxt/dao/mybatis/maps/send_status_SqlMap.xml" />
+		<mapper resource="com/jxt/dao/mybatis/maps/sms_info_SqlMap.xml" />
+		<mapper resource="com/jxt/dao/mybatis/maps/sms_operation_history_SqlMap.xml" />
+		<mapper resource="com/jxt/dao/mybatis/maps/student_2_parent_SqlMap.xml" />
+		<mapper resource="com/jxt/dao/mybatis/maps/student_info_SqlMap.xml" />
+		<mapper resource="com/jxt/dao/mybatis/maps/user_2_agent_SqlMap.xml" />
+		<mapper resource="com/jxt/dao/mybatis/maps/user_2_role_SqlMap.xml" />
+		<mapper resource="com/jxt/dao/mybatis/maps/user_2_school_SqlMap.xml" />
+		<mapper resource="com/jxt/dao/mybatis/maps/user_info_SqlMap.xml" />
+		-->
+    </mappers>
+    
+    <!--  
+    <plugins>
+        <plugin interceptor="jo.geun.utility.PagePlugin">
+            <property name="dialect" value="oracle" />
+            <property name="pageSqlId" value=".*ListPage.*" />
+        </plugin>
+    </plugins>
+    -->
+</configuration>  

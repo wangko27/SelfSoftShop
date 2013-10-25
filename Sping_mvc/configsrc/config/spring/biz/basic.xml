@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+				http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
+	<!-- transaction management -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="JXTDataSource" />
+	</bean>
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+   <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="JXTDataSource" />
+        <property name="configLocation" value="classpath:config/mybatis/mybatis-conf.xml" >
+        </property>
+    </bean>
+    
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.jxt.dao" />
+    </bean>
+
+	<context:component-scan base-package="com.jxt"
+		use-default-filters="false">
+
+		<context:include-filter type="annotation"
+			expression="org.springframework.stereotype.Service" />
+		<context:include-filter type="annotation"
+			expression="org.springframework.stereotype.Repository" />
+		<context:include-filter type="aspectj"
+			expression="com.jxt.*.service.impl.*ServiceImpl" />
+		<context:include-filter type="aspectj"
+			expression="com.jxt.*.dao.impl.*DaoImpl" />
+	</context:component-scan>
+
+	<!-- biz properties resource load -->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="defaultEncoding" value="UTF-8" />
+		<property name="basenames">
+			<list>
+				<value>classpath:config/system/biz_message</value>
+				<value>classpath:config/system/biz_config</value>
+			</list>
+		</property>
+	</bean>
+</beans> 

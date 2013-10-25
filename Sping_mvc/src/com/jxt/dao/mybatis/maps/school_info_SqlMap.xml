@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="school_info_name}">
+
+	<typeAlias alias="schoolInfo" type="com.hf.jxt.domain.SchoolInfo" />
+
+	<cacheModel id="oneDayCache" type="OSCACHE">
+		<flushInterval hours="24" />
+		<flushOnExecute statement="insertSchoolInfo" />
+		<flushOnExecute statement="updateSchoolInfo" />
+		<flushOnExecute statement="deleteSchoolInfo" />
+	</cacheModel>
+
+	<resultMap id="schoolInfoResultForList" class="schoolInfo">
+		<result column="id" property="id" jdbcType="INTEGER" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="city_id" property="city_id" jdbcType="INTEGER" />
+		<result column="district_id" property="district_id" jdbcType="INTEGER" />
+		<result column="agent_id" property="agent_id" jdbcType="INTEGER" />
+		<result column="status" property="status" jdbcType="INTEGER" />
+	</resultMap>
+
+	<resultMap id="schoolInfoResult" class="schoolInfo" extends="schoolInfoResultForList">
+	</resultMap>
+
+	<sql id="sf-schoolInfo">
+		<isNotEmpty prepend=" and " property="id">id = #id:INTEGER#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="name">name = #name:VARCHAR#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="city_id">city_id = #city_id:INTEGER#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="district_id">district_id = #district_id:INTEGER#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="agent_id">agent_id = #agent_id:INTEGER#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="status">status = #status:INTEGER#</isNotEmpty>
+	</sql>
+
+	<select id="selectSchoolInfo" resultMap="schoolInfoResult" parameterClass="schoolInfo" cacheModel="oneDayCache">
+		select *school_info.table_name} where 1 = 1
+		<include refid="sf-schoolInfo" />
+	</select>
+
+	<select id="selectSchoolInfoList" resultMap="schoolInfoResultForList" parameterClass="schoolInfo" cacheModel="oneDayCache">
+		<isNotEmpty property="row.count">
+			<![CDATA[ select * from ( ]]>
+		</isNotEmpty>
+		seschool_info{table.table_name} where 1 = 1
+		<include refid="sf-schoolInfo" />
+		<!-- order by ID asc -->
+		<isNotEmpty property="row.count">
+			<![CDATA[ ) where rownum <= #row.count# ]]>
+		</isNotEmpty>
+	</select>
+
+	<select id="selectSchoolInfoCount" resultClass="long" parameterClass="schoolInfo" cacheModel="oneDayCache">
+		selschool_infofrom school_info where 1 = 1
+		<include refid="sf-schoolInfo" />
+	</select>
+
+	<select id="selectSchoolInfoPaginatedList" resultMap="schoolInfoResult" parameterClass="schoolInfo" cacheModel="oneDayCache">
+		<![CDATA[ select * from ( select t_.*, rownum rn_ fromschool_infoect * from school_info where 1 = 1
+		<include refid="sf-schoolInfo" />
+		<!-- order by ID asc -->
+		<![CDATA[ ) t_ where rownum <= (#row.first# + #row.count#)) where rn_ >= (#row.first# + 1) ]]>
+	</select>
+
+	<insert id="insertSchoolInfo" parameterClass="schoolInfo">
+		<selectKey resultClass="long" keyProperty="id">select seq_xxx.nextval as id from dual </selectKey>
+		<![CDATA[insert into school_info (]]>
+		<dynamic prepend=" ">
+			<isNotNull prepend="," property="id">id</isNotNull>	
+			<isNotNull prepend="," property="name">name</isNotNull>	
+			<isNotNull prepend="," property="city_id">city_id</isNotNull>	
+			<isNotNull prepend="," property="district_id">district_id</isNotNull>	
+			<isNotNull prepend="," property="agent_id">agent_id</isNotNull>	
+			<isNotNull prepend="," property="status">status</isNotNull>	
+		</dynamic>
+		<![CDATA[) values (]]>
+		<dynamic prepend=" ">
+			<isNotNull prepend="," property="id">#id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="name">#name:VARCHAR#</isNotNull>
+			<isNotNull prepend="," property="city_id">#city_id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="district_id">#district_id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="agent_id">#agent_id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="status">#status:INTEGER#</isNotNull>
+		</dynamic>
+		<![CDATA[)]]>
+	</insert>
+
+	<update id="updateSchoolInfo" parameterClass="SchoolInfo">
+		update school_info
+		<dynamic prepend="set">
+			<isNotNull prepend="," property="id">id = #id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="name">name = #name:VARCHAR#</isNotNull>
+			<isNotNull prepend="," property="city_id">city_id = #city_id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="district_id">district_id = #district_id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="agent_id">agent_id = #agent_id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="status">status = #status:INTEGER#</isNotNull>
+		</dynamic>
+		where
+		<isNotEmpty prepend=" " property="id">ID = #id#</isNotEmpty>
+		<isEmpty prepend=" " property="id">
+			<isNotEmpty prepend=" " property="map.pks">
+				ID in
+				<iterate close=")" open="(" conjunction="," property="map.pks">#map.pks[]#</iterate>
+			</isNotEmpty>
+		</isEmpty>
+	</update>
+
+	<delete id="deleteSchoolInfo" parameterClass="SchoolInfo">
+		delete from school_info where
+		<isNotEmpty prepend=" " property="id">ID = #id#</isNotEmpty>
+		<isEmpty prepend=" " property="id">
+			<isNotEmpty prepend=" " property="map.pks">
+				ID in
+				<iterate close=")" open="(" conjunction="," property="map.pks">#map.pks[]#</iterate>
+			</isNotEmpty>
+		</isEmpty>
+	</delete>
+
+</sqlMap>

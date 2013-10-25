@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="student_2_parent_name}">
+
+	<typeAlias alias="student2Parent" type="com.hf.jxt.domain.Student2Parent" />
+
+	<cacheModel id="oneDayCache" type="OSCACHE">
+		<flushInterval hours="24" />
+		<flushOnExecute statement="insertStudent2Parent" />
+		<flushOnExecute statement="updateStudent2Parent" />
+		<flushOnExecute statement="deleteStudent2Parent" />
+	</cacheModel>
+
+	<resultMap id="student2ParentResultForList" class="student2Parent">
+		<result column="student_id" property="student_id" jdbcType="INTEGER" />
+		<result column="parent_id" property="parent_id" jdbcType="INTEGER" />
+		<result column="par_phone_send_status" property="par_phone_send_status" jdbcType="INTEGER" />
+	</resultMap>
+
+	<resultMap id="student2ParentResult" class="student2Parent" extends="student2ParentResultForList">
+	</resultMap>
+
+	<sql id="sf-student2Parent">
+		<isNotEmpty prepend=" and " property="student_id">student_id = #student_id:INTEGER#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="parent_id">parent_id = #parent_id:INTEGER#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="par_phone_send_status">par_phone_send_status = #par_phone_send_status:INTEGER#</isNotEmpty>
+	</sql>
+
+	<select id="selectStudent2Parent" resultMap="student2ParentResult" parameterClass="student2Parent" cacheModel="oneDayCache">
+		select *student_2_parent.table_name} where 1 = 1
+		<include refid="sf-student2Parent" />
+	</select>
+
+	<select id="selectStudent2ParentList" resultMap="student2ParentResultForList" parameterClass="student2Parent" cacheModel="oneDayCache">
+		<isNotEmpty property="row.count">
+			<![CDATA[ select * from ( ]]>
+		</isNotEmpty>
+		sestudent_2_parent{table.table_name} where 1 = 1
+		<include refid="sf-student2Parent" />
+		<!-- order by ID asc -->
+		<isNotEmpty property="row.count">
+			<![CDATA[ ) where rownum <= #row.count# ]]>
+		</isNotEmpty>
+	</select>
+
+	<select id="selectStudent2ParentCount" resultClass="long" parameterClass="student2Parent" cacheModel="oneDayCache">
+		selstudent_2_parentfrom student_2_parent where 1 = 1
+		<include refid="sf-student2Parent" />
+	</select>
+
+	<select id="selectStudent2ParentPaginatedList" resultMap="student2ParentResult" parameterClass="student2Parent" cacheModel="oneDayCache">
+		<![CDATA[ select * from ( select t_.*, rownum rn_ fromstudent_2_parentect * from student_2_parent where 1 = 1
+		<include refid="sf-student2Parent" />
+		<!-- order by ID asc -->
+		<![CDATA[ ) t_ where rownum <= (#row.first# + #row.count#)) where rn_ >= (#row.first# + 1) ]]>
+	</select>
+
+	<insert id="insertStudent2Parent" parameterClass="student2Parent">
+		<selectKey resultClass="long" keyProperty="id">select seq_xxx.nextval as id from dual </selectKey>
+		<![CDATA[insert into student_2_parent (]]>
+		<dynamic prepend=" ">
+			<isNotNull prepend="," property="student_id">student_id</isNotNull>	
+			<isNotNull prepend="," property="parent_id">parent_id</isNotNull>	
+			<isNotNull prepend="," property="par_phone_send_status">par_phone_send_status</isNotNull>	
+		</dynamic>
+		<![CDATA[) values (]]>
+		<dynamic prepend=" ">
+			<isNotNull prepend="," property="student_id">#student_id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="parent_id">#parent_id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="par_phone_send_status">#par_phone_send_status:INTEGER#</isNotNull>
+		</dynamic>
+		<![CDATA[)]]>
+	</insert>
+
+	<update id="updateStudent2Parent" parameterClass="Student2Parent">
+		update student_2_parent
+		<dynamic prepend="set">
+			<isNotNull prepend="," property="student_id">student_id = #student_id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="parent_id">parent_id = #parent_id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="par_phone_send_status">par_phone_send_status = #par_phone_send_status:INTEGER#</isNotNull>
+		</dynamic>
+		where
+		<isNotEmpty prepend=" " property="id">ID = #id#</isNotEmpty>
+		<isEmpty prepend=" " property="id">
+			<isNotEmpty prepend=" " property="map.pks">
+				ID in
+				<iterate close=")" open="(" conjunction="," property="map.pks">#map.pks[]#</iterate>
+			</isNotEmpty>
+		</isEmpty>
+	</update>
+
+	<delete id="deleteStudent2Parent" parameterClass="Student2Parent">
+		delete from student_2_parent where
+		<isNotEmpty prepend=" " property="id">ID = #id#</isNotEmpty>
+		<isEmpty prepend=" " property="id">
+			<isNotEmpty prepend=" " property="map.pks">
+				ID in
+				<iterate close=")" open="(" conjunction="," property="map.pks">#map.pks[]#</iterate>
+			</isNotEmpty>
+		</isEmpty>
+	</delete>
+
+</sqlMap>

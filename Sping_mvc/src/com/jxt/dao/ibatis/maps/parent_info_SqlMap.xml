@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="parent_info_name}">
+
+	<typeAlias alias="parentInfo" type="com.jxt.domain.ParentInfo" />
+
+	<cacheModel id="oneDayCache" type="OSCACHE">
+		<flushInterval hours="24" />
+		<flushOnExecute statement="insertParentInfo" />
+		<flushOnExecute statement="updateParentInfo" />
+		<flushOnExecute statement="deleteParentInfo" />
+	</cacheModel>
+
+	<resultMap id="parentInfoResultForList" class="parentInfo">
+		<result column="id" property="id" jdbcType="INTEGER" />
+		<result column="name" property="name" jdbcType="CHAR" />
+		<result column="par_phone_num" property="par_phone_num" jdbcType="CHAR" />
+		<result column="par_phone_type" property="par_phone_type" jdbcType="INTEGER" />
+		<result column="par_charge_phone_num" property="par_charge_phone_num" jdbcType="CHAR" />
+		<result column="par_charge_phone_type" property="par_charge_phone_type" jdbcType="INTEGER" />
+		<result column="student_id" property="student_id" jdbcType="INTEGER" />
+		<result column="status" property="status" jdbcType="INTEGER" />
+	</resultMap>
+
+	<resultMap id="parentInfoResult" class="parentInfo" extends="parentInfoResultForList">
+	</resultMap>
+
+	<sql id="sf-parentInfo">
+		<isNotEmpty prepend=" and " property="id">id = #id:INTEGER#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="name">name = #name:CHAR#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="par_phone_num">par_phone_num = #par_phone_num:CHAR#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="par_phone_type">par_phone_type = #par_phone_type:INTEGER#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="par_charge_phone_num">par_charge_phone_num = #par_charge_phone_num:CHAR#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="par_charge_phone_type">par_charge_phone_type = #par_charge_phone_type:INTEGER#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="student_id">student_id = #student_id:INTEGER#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="status">status = #status:INTEGER#</isNotEmpty>
+	</sql>
+
+	<select id="selectParentInfo" resultMap="parentInfoResult" parameterClass="parentInfo" cacheModel="oneDayCache">
+		select *parent_info.table_name} where 1 = 1
+		<include refid="sf-parentInfo" />
+	</select>
+
+	<select id="selectParentInfoList" resultMap="parentInfoResultForList" parameterClass="parentInfo" cacheModel="oneDayCache">
+		<isNotEmpty property="row.count">
+			<![CDATA[ select * from ( ]]>
+		</isNotEmpty>
+		separent_info{table.table_name} where 1 = 1
+		<include refid="sf-parentInfo" />
+		<!-- order by ID asc -->
+		<isNotEmpty property="row.count">
+			<![CDATA[ ) where rownum <= #row.count# ]]>
+		</isNotEmpty>
+	</select>
+
+	<select id="selectParentInfoCount" resultClass="long" parameterClass="parentInfo" cacheModel="oneDayCache">
+		selparent_infofrom parent_info where 1 = 1
+		<include refid="sf-parentInfo" />
+	</select>
+
+	<select id="selectParentInfoPaginatedList" resultMap="parentInfoResult" parameterClass="parentInfo" cacheModel="oneDayCache">
+		<![CDATA[ select * from ( select t_.*, rownum rn_ fromparent_infoect * from parent_info where 1 = 1
+		<include refid="sf-parentInfo" />
+		<!-- order by ID asc -->
+		<![CDATA[ ) t_ where rownum <= (#row.first# + #row.count#)) where rn_ >= (#row.first# + 1) ]]>
+	</select>
+
+	<insert id="insertParentInfo" parameterClass="parentInfo">
+		<selectKey resultClass="long" keyProperty="id">select seq_xxx.nextval as id from dual </selectKey>
+		<![CDATA[insert into parent_info (]]>
+		<dynamic prepend=" ">
+			<isNotNull prepend="," property="id">id</isNotNull>	
+			<isNotNull prepend="," property="name">name</isNotNull>	
+			<isNotNull prepend="," property="par_phone_num">par_phone_num</isNotNull>	
+			<isNotNull prepend="," property="par_phone_type">par_phone_type</isNotNull>	
+			<isNotNull prepend="," property="par_charge_phone_num">par_charge_phone_num</isNotNull>	
+			<isNotNull prepend="," property="par_charge_phone_type">par_charge_phone_type</isNotNull>	
+			<isNotNull prepend="," property="student_id">student_id</isNotNull>	
+			<isNotNull prepend="," property="status">status</isNotNull>	
+		</dynamic>
+		<![CDATA[) values (]]>
+		<dynamic prepend=" ">
+			<isNotNull prepend="," property="id">#id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="name">#name:CHAR#</isNotNull>
+			<isNotNull prepend="," property="par_phone_num">#par_phone_num:CHAR#</isNotNull>
+			<isNotNull prepend="," property="par_phone_type">#par_phone_type:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="par_charge_phone_num">#par_charge_phone_num:CHAR#</isNotNull>
+			<isNotNull prepend="," property="par_charge_phone_type">#par_charge_phone_type:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="student_id">#student_id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="status">#status:INTEGER#</isNotNull>
+		</dynamic>
+		<![CDATA[)]]>
+	</insert>
+
+	<update id="updateParentInfo" parameterClass="ParentInfo">
+		update parent_info
+		<dynamic prepend="set">
+			<isNotNull prepend="," property="id">id = #id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="name">name = #name:CHAR#</isNotNull>
+			<isNotNull prepend="," property="par_phone_num">par_phone_num = #par_phone_num:CHAR#</isNotNull>
+			<isNotNull prepend="," property="par_phone_type">par_phone_type = #par_phone_type:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="par_charge_phone_num">par_charge_phone_num = #par_charge_phone_num:CHAR#</isNotNull>
+			<isNotNull prepend="," property="par_charge_phone_type">par_charge_phone_type = #par_charge_phone_type:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="student_id">student_id = #student_id:INTEGER#</isNotNull>
+			<isNotNull prepend="," property="status">status = #status:INTEGER#</isNotNull>
+		</dynamic>
+		where
+		<isNotEmpty prepend=" " property="id">ID = #id#</isNotEmpty>
+		<isEmpty prepend=" " property="id">
+			<isNotEmpty prepend=" " property="map.pks">
+				ID in
+				<iterate close=")" open="(" conjunction="," property="map.pks">#map.pks[]#</iterate>
+			</isNotEmpty>
+		</isEmpty>
+	</update>
+
+	<delete id="deleteParentInfo" parameterClass="ParentInfo">
+		delete from parent_info where
+		<isNotEmpty prepend=" " property="id">ID = #id#</isNotEmpty>
+		<isEmpty prepend=" " property="id">
+			<isNotEmpty prepend=" " property="map.pks">
+				ID in
+				<iterate close=")" open="(" conjunction="," property="map.pks">#map.pks[]#</iterate>
+			</isNotEmpty>
+		</isEmpty>
+	</delete>
+
+</sqlMap>
